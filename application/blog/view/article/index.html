@@ -64,12 +64,12 @@
             <th class='list-table-sort-td'>
                 <button type="submit" class="layui-btn layui-btn-normal layui-btn-xs">排 序</button>
             </th>
-            <th class='text-left'>id</th>
-            <th class='text-left'>用户id</th>
-            <th class='text-left'>标题</th>
-            <th class='text-left'>摘要</th>
-            <th class='text-left'>正文</th>
-            <th class='text-left'>创建时间</th>
+            <th class='text-center'>用户id</th>
+            <th class='text-center'>标题</th>
+            <th class='text-center'>摘要</th>
+            <th class='text-center'>创建时间</th>
+            <th class='text-center'>状态</th>
+            <th class='text-center'>操作</th>
         </tr>
         </thead>
         <tbody>
@@ -81,13 +81,14 @@
             <td class='list-table-sort-td'>
                 <input name="_{$vo.id}" value="{$vo.id}" class="list-sort-input"/>
             </td>
-            <td class='text-left'>{$vo.id}</td>
-            <td class='text-left'>{$vo.title}</td>
-            <td class='text-left'>{$vo.create_at|format_datetime}</td>
-            <td class='text-left'>
+            <td class='text-center'>{$vo.id}</td>
+            <td class='text-center'>{$vo.title}</td>
+            <td class="text-center">{$vo.abstracts}</td>
+            <td class='text-center'>{$vo.create_at|format_datetime}</td>
+            <td class='text-center'>
                 {if $vo.status eq 0}<span class="color-red">已禁用</span>{elseif $vo.status eq 1}<span class="color-green">使用中</span>{/if}
             </td>
-            <td class='text-left nowrap'>
+            <td class='nowrap text-center'>
 
                 <!--{if auth("$classuri/edit")}-->
                 <span class="text-explode">|</span>
