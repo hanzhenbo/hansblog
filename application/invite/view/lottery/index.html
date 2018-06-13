@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EA九宫格抽奖</title>
+<link href="/static/lottery/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/lottery/css/swiper.min.css" rel="stylesheet">
+<link href="/static/lottery/css/common.css" rel="stylesheet">
+<link href="/static/lottery/css/index.css" rel="stylesheet">
+<script src="/static/lottery/js/jquery-1.11.3.min.js"></script>
+<script src="/static/lottery/js/swiper.min.js"></script>
+<script src="/static/lottery/js/jQueryRotate.2.2.js"></script>
+<script src="/static/lottery/js/jquery.easing.min.js"></script>
+<script src="/static/lottery/js/common.js"></script>
+</head>
+<body>
+
+<div class="kljgg"><img src="/static/lottery/images/kljgg.png" class="img-responsive"><a href="javascript:void(0);" class="rolebtn showrolebox">活动规则</a></div>
+<div class="jggbox">
+   <div class="clearfix"><img src="/static/lottery/images/jgg.png" class="img-responsive"></div>
+   <div class="cont" id="lottery">
+      <table width="100%" height="100%">
+         <tr>
+             <td height="33%" class="lottery-unit lottery-unit-0 active"><div class="prv"><img src="/static/lottery/images/0.png" class="img-responsive"><div class="toum"></div></div></td>
+             <td class="lottery-unit lottery-unit-1"><div class="prv"><img src="/static/lottery/images/1.png" class="img-responsive"><div class="toum"></div></div></td>
+             <td class="lottery-unit lottery-unit-2"><div class="prv"><img src="/static/lottery/images/2.png" class="img-responsive"><div class="toum"></div></div></td>
+         </tr>
+         <tr>
+             <td height="33%" class="lottery-unit lottery-unit-7"><div class="prv"><img src="/static/lottery/images/7.png" class="img-responsive"><div class="toum"></div></div></td>
+             <td><a href="javascript:void(0);" id="start"><img src="/static/lottery/images/jgo.png" class="img-responsive"></a></td>
+             <td class="lottery-unit lottery-unit-3"><div class="prv"><img src="/static/lottery/images/3.png" class="img-responsive"><div class="toum"></div></div></td>
+         </tr>
+         <tr>
+             <td height="33%" class="lottery-unit lottery-unit-6"><div class="prv"><img src="/static/lottery/images/6.png" class="img-responsive"><div class="toum"></div></div></td>
+             <td class="lottery-unit lottery-unit-5"><div class="prv"><img src="/static/lottery/images/5.png" class="img-responsive"><div class="toum"></div></div></td>
+             <td class="lottery-unit lottery-unit-4"><div class="prv"><img src="/static/lottery/images/4.png" class="img-responsive"><div class="toum"></div></div></td>
+         </tr>
+      </table>
+   </div>
+</div>
+<div class="clearfix text-center wihte f-sm">
+<p class="mar-v-xs">开始时间：2018/01/01</p>
+<p class="mar-v-xs">结束时间：2018/12/12</p>
+</div>
+<div class="cover"></div>
+<div class="rolebox">
+   <div class="title">活动规则<a href="javascript:void(0);" class="icon closerolebox icon-close"></a></div>
+   <div class="cont">
+      <p>1、每人有三次机会，红包金额随机（0-300元）红包金额大小看你人品；</p>
+      <p>2、分享给好友，每多一位好友参加，就多一次抽奖机会，邀请越多，机会越多；</p>
+      <p>3、10元即可提现（每天0-8点由于官方限制不能提现，提现后会通过服务通知发到您的微信，注意查收噢；不要删掉了）</p>
+      <a href="javascript:void(0);" class="btns closerolebox">我知道了</a>
+   </div>
+</div>
+<div class="giftbg"><img src="/static/lottery/images/giftbg.png" class="img-responsive"></div>
+<div class="giftout">
+   <div class="text-center org pad-v f-md"><span id="giftname"></span></div>
+   <div class="clearfix">
+      <div class="pad-h"><img src="/static/lottery/images/0.png" id="giftimg" class="img-responsive"></div>
+   </div>
+   <div class="clearfix giftfm hidden">
+      <div class="clearfix text-center mar-v-sm f-sm wihte pad-h-sm">记得留下您的联系方式，我们会尽快和您确认把奖品快递给您噢（瞄币和现金将会自动归入账户）</div>
+      <div class="clearfix">
+         <ul>
+            <li><input type="text" class="form-control" placeholder="姓名"></li>
+            <li class="mar-v-sm"><input type="text" class="form-control" placeholder="手机"></li>
+            <li><input type="text" class="form-control" placeholder="地址"></li>
+         </ul>
+      </div>
+   </div>
+   <div class="clearfix mar-v"><a href="javascript:void(0);" class="btns getgift notread">立即领取</a></div>
+</div>
+<div class="giftclose"><a href="javascript:void(0);" class="icon closegift icon-close"></a></div>
+</body>
+</html>
