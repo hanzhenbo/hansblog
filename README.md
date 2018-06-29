@@ -2,11 +2,13 @@ ThinkAdmin for PHP
 --
 ## 学无止境
 
-* 本项目前端使用了amazeUI，后台的ThinkAdmin 是一个基于 Thinkphp 5.1.x 开发的后台管理系统，集成后台系统常用功能。
-* 项目安装及二次开发请参考 ThinkPHP 官方文档及下面的服务环境说明，数据库 sql 文件存放于项目根目录下。
+* 本项目目前功能包括博客前后台、日历、抽奖注册功能，目前个功能相互独立
+* 博客项目前端使用了amazeUI，后台的ThinkAdmin， ThinkAdmin是一个基于 Thinkphp 5.1.x 开发的后台管理系统。
+* 项目的安装及二次开发请参考 ThinkPHP 官方文档及下面的服务环境说明，数据库 sql 文件存放于项目根目录下。
 >* 注意：项目测试请另行搭建环境并创建数据库（数据库配置 config/database.php）, 切勿直接使用测试环境数据！
 >* 如果系统提示“测试系统禁止操作等字样”，可以删除项目演示路由配置（route/demo.php）或清空里面的路由记录。
 >* 当前版本使用 ThinkPHP 5.1.x 版本，对PHP版本要求不低于php5.6，具体请查阅ThinkPHP官方文档。
+>* 所使用数据库情况：hans_task为日历数据库，博客及抽奖注册使用hans_数据库，其余为ThinkAdmin后台支撑数据库
 
 
 Documentation
@@ -104,5 +106,5 @@ server {
 
 Copyright
 --
-* ThinkAdmin 基于`MIT`协议发布，任何人可以用在任何地方，不受约束
-* ThinkAdmin 部分代码来自互联网，若有异议，可以联系作者进行删除
+* ThinkAdmin 基于`MIT`协议发布，任何人可以用在任何地方，不受约束fork地址	https://github.com/zoujingli/ThinkAdmin
+* 整体项目的使用请先联系作者

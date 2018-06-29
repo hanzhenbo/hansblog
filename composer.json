@@ -23,7 +23,9 @@
     "aliyuncs/oss-sdk-php": "^2.2",
     "zoujingli/weopen-developer": "dev-master",
     "topthink/think-captcha": "^2.0",
-    "qiniu/php-sdk": "^7.2"
+    "qiniu/php-sdk": "^7.2",
+    "topthink/think-helper": ">=1.0.4",
+    "guzzlehttp/guzzle": "^6.3"
   },
   "autoload": {
     "psr-4": {

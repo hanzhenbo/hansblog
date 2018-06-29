@@ -5,6 +5,7 @@
  * Date: 2017-6-27 16:55
  * Email: hanqwa@163.com
  * Copyright (c) hzb
+ * 展示页面所用到的一些方法和BasicAdmin相同
  */
 
 namespace controller;
@@ -34,11 +35,6 @@ class BasicHome extends Controller
      */
     public $table;
 
-    /**
-     * 默认检查用户登录状态
-     * @var bool
-     */
-    public $checkLogin = true;
 
     /**
      * 表单默认操作

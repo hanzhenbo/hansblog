@@ -33,14 +33,14 @@ class ToolsService
      */
     public static function corsOptionsHandler()
     {
-        Session::init(config('session.'));
-        $token = request()->header('token', '');
-        empty($token) && $token = request()->post('token', '');
-        empty($token) && $token = request()->get('token', '');
-        list($name, $value) = explode('=', decode($token) . '=');
-        if (!empty($value) && session_name() === $name) {
-            session_id($value);
-        }
+//        Session::init(config('session.'));
+//        $token = request()->header('token', '');
+//        empty($token) && $token = request()->post('token', '');
+//        empty($token) && $token = request()->get('token', '');
+//        list($name, $value) = explode('=', decode($token) . '=');
+//        if (!empty($value) && session_name() === $name) {
+//            session_id($value);
+//        }
         if (request()->isOptions()) {
             header('Access-Control-Allow-Origin:*');
             header('Access-Control-Allow-Credentials:true');

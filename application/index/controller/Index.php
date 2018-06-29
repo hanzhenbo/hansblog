@@ -4,8 +4,7 @@ namespace app\index\controller;
 use controller\BasicHome;
 use think\captcha\Captcha;
 use \think\Db;
-use think\Session;
-use think\Log;
+use think\facade\Session;
 
 class Index extends BasicHome
 {
@@ -19,8 +18,9 @@ class Index extends BasicHome
 //        }else{
             $rest_time = 10000;
 //        }
+        $where = ['status'=>1,'is_deleted'=>0];
         $this->assign('rest_time',$rest_time);
-        $db = Db::name('hans_article')->where('');
+        $db = Db::name('hans_article')->where($where);
         return $this->_list($db, true);
     }
 
@@ -34,7 +34,6 @@ class Index extends BasicHome
             ->join('hans_user u','dis.user_id = u.id')
             ->field('dis.*,u.name')
             ->where('dis.article_id','=',$disid)
-            ->order('dis.create_at desc')
             ->select();
         return $this->fetch('',[
             'article'=>$article,

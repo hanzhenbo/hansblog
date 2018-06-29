@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-size: 16px;
+  font-family: "微软雅黑 Light";
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.banner_middle {
+  width: 90%;
+  margin:0 auto;
+  display: block;
+}
+
+$msg-height: 36px;
+.msg-box {
+  text-align: center;
+  height: $msg-height;
+  color: #61bdfc;
+  position: fixed;
+  bottom: 30px;
+  width: 100%;
+  overflow: hidden;
+  p.msg {
+    display: inline-block;
+    background: rgba(0, 0, 0, .7);
+    height: 100%;
+    line-height: $msg-height;
+    padding: 0 $msg-height/2;
+    border-radius: $msg-height/2;
+  }
+}
+
+.form {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin: 0;
+  min-height: 8em;
+  .form-item {
+    width: 100%;
+    margin-bottom: 8px;
+    text-align: center;
+    input {
+      width: 85%;
+      height: 44px;
+      border-radius: 22px;
+      padding-left: 5%;
+      font-size: 16px;
+      border: 1px solid #61bdfc;
+      -webkit-appearance: none;
+      background: none;
+      color: #61bdfc;
+      font-weight: 400;
+      &::-webkit-input-placeholder {
+        color: #61bdfc;
+        opacity: 0.7;
+      }
+      &:focus {
+        border-radius: 22px;
+      }
+    }
+    button {
+      width: 90%;
+      height: 44px;
+      font-size: 18px;
+      border-radius: 22px;
+      margin-top: 10px;
+      border: none;
+      color: white;
+      &.disabled {
+        background: #61bdfc;
+      }
+      &.reset {
+        border: 1px solid #61bdfc;
+        color: #61bdfc;
+        background: none;
+      }
+    }
+    &.captcha {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      .l-captcha {
+        height: 44px;
+        border-radius: 22px;
+        overflow: hidden;
+        border: 1px solid #61bdfc;
+      }
+    }
+    &.code {
+      position: relative;
+      span {
+        position: absolute;
+        right: 50px;
+        color: #61bdfc;
+        display: block;
+        top: 0;
+        line-height: 44px;
+      }
+    }
+  }
+  .attachment {
+    font-size: 13px;
+    text-align: center;
+    color: #0c0c0c;
+    input {
+      vertical-align: middle;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+}

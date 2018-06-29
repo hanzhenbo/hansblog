@@ -1,0 +1,42 @@
+<form autocomplete="off" class="layui-form layui-box modal-form-box" action="{:request()->url()}" data-auto="true" method="post">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章题目</label>
+        <div class="layui-input-block">
+            <input autofocus name="title" value='{$article.title|default=""}' required title="请输入商品分类" placeholder="请输入商品分类" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">摘要</label>
+        <div class="layui-input-block">
+            <input autofocus name="abstracts" value='{$article.abstracts|default=""}' required title="请输入商品分类" placeholder="请输入商品分类" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章内容</label>
+        <div class="layui-input-block">
+            <textarea placeholder="请输入分类描述" title="请输入分类描述" class="layui-textarea" name="content">{$article.content|default=""}</textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章配图</label>
+        <!--<div class="layui-input-block">-->
+            <!--<img class="notselect" data-tips-image src="{$article.img}" style="width:80px;">-->
+        <!--</div>-->
+        <div class="layui-input-block">
+            <input type="hidden" name="img" value="{$article.img|default=''}">
+            <script>$('[name=img]').uploadOneImage()</script>
+        </div>
+    </div>
+
+    <div class="hr-line-dashed"></div>
+
+    <div class="layui-form-item text-center">
+        {if isset($article['id'])}<input type='hidden' value='{$article.id}' name='id'/>{/if}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button>
+    </div>
+</form>

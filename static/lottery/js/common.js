@@ -83,7 +83,7 @@ $(function(){
             url : "lottery/begin",
             type : "POST",
             error : function(){
-                alert('出错了');
+                layer.msg('数据出错 请稍后再试');
             },
             success : function(res){
                 var dataObj=eval("("+res+")");//转换为json对象
