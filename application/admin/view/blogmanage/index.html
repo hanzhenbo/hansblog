@@ -70,8 +70,8 @@
                 <input class="list-check-box" value='{$vo.id}' type='checkbox'/>
             </td>
             <td class='text-center'>{$vo.id}</td>
-            <td class='text-center'><a href="">{$vo.title}</a></td>
-            <td class="text-center">{$vo.abstracts}</td>
+            <td class='text-center'><a target="_blank" href='{:url("Index/index/article")}?article_id={$vo.id}'>{$vo.title}</a></td>
+            <td class="text-center line-limit-length" width="15%">{$vo.abstracts}</td>
             <td class='text-center'>{$vo.create_at|date="Y-m-d H:i:s"}</td>
             <td class='text-center'>
                 {if $vo.status eq 0}<span class="color-red">已禁用</span>{elseif $vo.status eq 1}<span class="color-green">使用中</span>{/if}

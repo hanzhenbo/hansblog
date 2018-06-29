@@ -105,7 +105,7 @@ class Blogmanage extends BasicAdmin
         $request = $this->request;
         $articleid = $request->get()['article_id'];
         if ($articleid) {
-            $url = 'http://'.$_SERVER['HTTP_HOST']. $articleid;
+            $url = 'http://'.$_SERVER['HTTP_HOST'].'/index/index/article?id='. $articleid;
             $data = [
                 'msg' => 1,
                 'url' => $url,
