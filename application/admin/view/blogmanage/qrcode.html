@@ -1,0 +1,44 @@
+{extend name='admin@public/content'}
+
+{block name="content"}
+<form onsubmit="return false;" data-auto="true" method="post">
+    <div class="layui-box">
+        <table class="table table-bordered">
+            <input type="hidden" id="aid" value="{$id}">
+            <button onclick="create()" style="margin-left: 1em; display: none;" type="button"
+                    class="layui-btn layui-btn-small layui-btn-success create"><i class="fa fa-qrcode"> </i></button>
+            <tr>
+                <th class="text-center">链接:</th>
+                <td><code id="code"></code></td>
+            </tr>
+            <tr>
+                <th class="text-center">二维码</th>
+                <td>
+                    <div class="img-responsive">
+                        <img id="ewm" src="" title="我的二维码">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+
+<script type="text/javascript">
+    function create() {
+        var id = $('#aid').val();
+        var url = "{:url('Blogmanage/createQrCode')}";
+        $.get(url, {'article_id': id}, function (data) {
+            var arr = JSON.parse(data);
+            if (arr.msg == 1) {
+                $('#code').text(arr.url);
+                $('#ewm').attr("src", 'data:image/png;base64,' + arr.data)
+            } else {
+                return layer.msg('生成二维码失败');
+            }
+        })
+    }
+
+    $(".create").click();
+    form.render();
+</script>
+{/block}
