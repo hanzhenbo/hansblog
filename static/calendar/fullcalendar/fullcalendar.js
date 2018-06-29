@@ -1063,7 +1063,7 @@ var Class_1 = __webpack_require__(33);
 var EventDefParser_1 = __webpack_require__(49);
 var EventSource = /** @class */ (function (_super) {
     tslib_1.__extends(EventSource, _super);
-    // can we do away with calendar? at least for the abstract?
+    // can we do away with daytask? at least for the abstract?
     // useful for buildEventDef
     function EventSource(calendar) {
         var _this = _super.call(this) || this;
@@ -1727,7 +1727,7 @@ exports.default = Interaction;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.version = '3.9.0';
 // When introducing internal API incompatibilities (where fullcalendar plugins would break),
-// the minor version of the calendar should be upped (ex: 2.7.2 -> 2.8.0)
+// the minor version of the daytask should be upped (ex: 2.7.2 -> 2.8.0)
 // and the below integer should be incremented.
 exports.internalApiVersion = 12;
 var util_1 = __webpack_require__(4);
@@ -2572,7 +2572,7 @@ var momComputableOptions = {
             .replace(/\s*a$/i, ''); // remove trailing AM/PM
     }
 };
-// options that should be computed off live calendar options (considers override options)
+// options that should be computed off live daytask options (considers override options)
 // TODO: best place for this? related to locale?
 // TODO: flipping text based on isRTL is a bad idea because the CSS `direction` might want to handle it
 var instanceComputableOptions = {
@@ -3491,7 +3491,7 @@ var InteractiveDateComponent = /** @class */ (function (_super) {
         for (i = 0; i < eventFootprints.length; i++) {
             // treat it as a selection
             // TODO: pass in eventInstanceGroup instead
-            //  because we don't want calendar's constraint system to depend on a component's
+            //  because we don't want daytask's constraint system to depend on a component's
             //  determination of footprints.
             if (!view.calendar.constraints.isSelectionFootprintAllowed(eventFootprints[i].componentFootprint)) {
                 return false;
@@ -3595,7 +3595,7 @@ var View = /** @class */ (function (_super) {
     };
     /* Title and Date Formatting
     ------------------------------------------------------------------------------------------------------------------*/
-    // Computes what the title at the top of the calendar should be for this view
+    // Computes what the title at the top of the daytask should be for this view
     View.prototype.computeTitle = function (dateProfile) {
         var unzonedRange;
         // for views that span a large unit of time, show the proper interval, ignoring stray days before and after
@@ -3905,7 +3905,7 @@ var View = /** @class */ (function (_super) {
     };
     /* External Element Drag-n-Drop
     ------------------------------------------------------------------------------------------------------------------*/
-    // Must be called when an external element, via jQuery UI, has been dropped onto the calendar.
+    // Must be called when an external element, via jQuery UI, has been dropped onto the daytask.
     // `meta` is the parsed data that has been embedded into the dragging event.
     // `dropLocation` is an object that contains the new zoned start/end/allDay values for the event.
     View.prototype.reportExternalDrop = function (singleEventDef, isEvent, isSticky, el, ev, ui) {
@@ -5297,7 +5297,7 @@ var EventDefDateMutation = /** @class */ (function () {
                 end = calendar.applyTimezone(end);
             }
         }
-        // TODO: okay to access calendar option?
+        // TODO: okay to access daytask option?
         if (!end && calendar.opt('forceEventDuration')) {
             end = calendar.getDefaultEventEnd(eventDateProfile.isAllDay(), start);
         }
@@ -6343,7 +6343,7 @@ var DayTableMixin = /** @class */ (function (_super) {
     /* Utils
     ------------------------------------------------------------------------------------------------------------------*/
     // Applies the generic "intro" and "outro" HTML to the given cells.
-    // Intro means the leftmost cell when the calendar is LTR and the rightmost cell when RTL. Vice-versa for outro.
+    // Intro means the leftmost cell when the daytask is LTR and the rightmost cell when RTL. Vice-versa for outro.
     DayTableMixin.prototype.bookendCells = function (trEl) {
         var introHtml = this.renderIntroHtml();
         if (introHtml) {
@@ -6853,7 +6853,7 @@ var DayGrid = /** @class */ (function (_super) {
             // rely on moment.js methods such as firstDayOfWeek() or weekday(),
             // because they rely on the locale's dow (possibly overridden by
             // our firstDay option), which may not be Monday. We cannot change
-            // dow, because that would affect the calendar start day as well.
+            // dow, because that would affect the daytask start day as well.
             if (date._locale._fullCalendar_weekCalc === 'ISO') {
                 weekCalcFirstDoW = 1; // Monday by ISO 8601 definition
             }
@@ -7920,7 +7920,7 @@ function isOverlapEventInstancesAllowed(overlapEventFootprints, subjectEventInst
     for (i = 0; i < overlapEventFootprints.length; i++) {
         overlapEventInstance = overlapEventFootprints[i].eventInstance;
         overlapEventDef = overlapEventInstance.def;
-        // don't need to pass in calendar, because don't want to consider global eventOverlap property,
+        // don't need to pass in daytask, because don't want to consider global eventOverlap property,
         // because we already considered that earlier in the process.
         overlapVal = overlapEventDef.getOverlap();
         if (overlapVal === false) {
@@ -9142,7 +9142,7 @@ var DateComponent = /** @class */ (function (_super) {
     DateComponent.prototype._getDateProfile = function () {
         return this._getView().get('dateProfile');
     };
-    // Generates HTML for an anchor to another view into the calendar.
+    // Generates HTML for an anchor to another view into the daytask.
     // Will either generate an <a> tag or a non-clickable <span> tag, depending on enabled settings.
     // `gotoOptions` can either be a moment input, or an object with the form:
     // { date, type, forceOff }
@@ -9311,7 +9311,7 @@ var Calendar = /** @class */ (function () {
         this.loadingLevel = 0; // number of simultaneous loading tasks
         this.ignoreUpdateViewSize = 0;
         this.freezeContentHeightDepth = 0;
-        // declare the current calendar instance relies on GlobalEmitter. needed for garbage collection.
+        // declare the current daytask instance relies on GlobalEmitter. needed for garbage collection.
         // unneeded() is called in destroy.
         GlobalEmitter_1.default.needed();
         this.el = el;
@@ -9466,7 +9466,7 @@ var Calendar = /** @class */ (function () {
     };
     // for external API
     Calendar.prototype.getDate = function () {
-        return this.applyTimezone(this.currentDate); // infuse the calendar's timezone
+        return this.applyTimezone(this.currentDate); // infuse the daytask's timezone
     };
     // Loading Triggering
     // -----------------------------------------------------------------------------------------------------------------
@@ -9892,7 +9892,7 @@ var Calendar = /** @class */ (function () {
             }
         });
     };
-    // Builds a moment using the settings of the current calendar: timezone and locale.
+    // Builds a moment using the settings of the current daytask: timezone and locale.
     // Accepts anything the vanilla moment() constructor accepts.
     Calendar.prototype.moment = function () {
         var args = [];
@@ -9935,11 +9935,11 @@ var Calendar = /** @class */ (function () {
         this.localizeMoment(mom);
         return mom;
     };
-    // Updates the given moment's locale settings to the current calendar locale settings.
+    // Updates the given moment's locale settings to the current daytask locale settings.
     Calendar.prototype.localizeMoment = function (mom) {
         mom._locale = this.localeData;
     };
-    // Returns a boolean about whether or not the calendar knows how to calculate
+    // Returns a boolean about whether or not the daytask knows how to calculate
     // the timezone offset of arbitrary dates in the current timezone.
     Calendar.prototype.getIsAmbigTimezone = function () {
         return this.opt('timezone') !== 'local' && this.opt('timezone') !== 'UTC';
@@ -12394,7 +12394,7 @@ $.fn.fullCalendar = function (options) {
     var res = this; // what this function will return (this jQuery object by default)
     this.each(function (i, _element) {
         var element = $(_element);
-        var calendar = element.data('fullCalendar'); // get the existing calendar object (if any)
+        var calendar = element.data('fullCalendar'); // get the existing daytask object (if any)
         var singleRes; // the returned value of this single method call
         // a method call
         if (typeof options === 'string') {
@@ -12410,7 +12410,7 @@ $.fn.fullCalendar = function (options) {
                 }
             }
             else if (!calendar) {
-                util_1.warn('Attempting to call a FullCalendar method on an element with no calendar.');
+                util_1.warn('Attempting to call a FullCalendar method on an element with no daytask.');
             }
             else if ($.isFunction(calendar[options])) {
                 singleRes = calendar[options].apply(calendar, args);
@@ -12527,7 +12527,7 @@ var Toolbar = /** @class */ (function () {
         this.calendar = calendar;
         this.toolbarOptions = toolbarOptions;
     }
-    // method to update toolbar-specific options, not calendar-wide options
+    // method to update toolbar-specific options, not daytask-wide options
     Toolbar.prototype.setToolbarOptions = function (newToolbarOptions) {
         this.toolbarOptions = newToolbarOptions;
     };
@@ -12791,7 +12791,7 @@ var OptionsManager = /** @class */ (function (_super) {
         this._calendar.viewsByType = {};
         this._calendar.reinitView();
     };
-    // Computes the flattened options hash for the calendar and assigns to `this.options`.
+    // Computes the flattened options hash for the daytask and assigns to `this.options`.
     // Assumes this.overrides and this.dynamicOverrides have already been initialized.
     OptionsManager.prototype.compute = function () {
         var locale;
@@ -13870,8 +13870,8 @@ var TimeGridEventRenderer = /** @class */ (function (_super) {
         }
     };
     // Calculate seg.forwardCoord and seg.backwardCoord for the segment, where both values range
-    // from 0 to 1. If the calendar is left-to-right, the seg.backwardCoord maps to "left" and
-    // seg.forwardCoord maps to "right" (via percentage). Vice-versa if the calendar is right-to-left.
+    // from 0 to 1. If the daytask is left-to-right, the seg.backwardCoord maps to "left" and
+    // seg.forwardCoord maps to "right" (via percentage). Vice-versa if the daytask is right-to-left.
     //
     // The segment might be part of a "series", which means consecutive segments with the same pressure
     // who's width is unknown until an edge has been hit. `seriesBackwardPressure` is the number of
@@ -13964,8 +13964,8 @@ var TimeGridEventRenderer = /** @class */ (function (_super) {
     return TimeGridEventRenderer;
 }(EventRenderer_1.default));
 exports.default = TimeGridEventRenderer;
-// Builds an array of segments "levels". The first level will be the leftmost tier of segments if the calendar is
-// left-to-right, or the rightmost if the calendar is right-to-left. Assumes the segments are already ordered by date.
+// Builds an array of segments "levels". The first level will be the leftmost tier of segments if the daytask is
+// left-to-right, or the rightmost if the daytask is right-to-left. Assumes the segments are already ordered by date.
 function buildSlotSegLevels(segs) {
     var levels = [];
     var i;
@@ -14419,7 +14419,7 @@ var DayGridEventRenderer = /** @class */ (function (_super) {
             // create new level array if needed and append segment
             (levels[j] || (levels[j] = [])).push(seg);
         }
-        // order segments left-to-right. very important if calendar is RTL
+        // order segments left-to-right. very important if daytask is RTL
         for (j = 0; j < levels.length; j++) {
             levels[j].sort(compareDaySegCols);
         }

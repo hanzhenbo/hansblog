@@ -25,7 +25,7 @@
     border:1px solid black;
 }
 @media only screen and (min-width: 1200px) {
-      .blog-g-fixed {
+      .daytask-g-fixed {
         max-width: 100%;
       }
 }
@@ -207,13 +207,13 @@ body {
 
 
 /**
- * blog css 
+ * daytask css
  * a:hover: #10D07A 
  * 基本色：#333 
  * 或者 #3d3d3d   
  * bgcolor：#10D07A  ， color：#fff
- * blog-color  单独的颜色突出
- * .blog-bor    border:1px solid #e5e5e5
+ * daytask-color  单独的颜色突出
+ * .daytask-bor    border:1px solid #e5e5e5
  * css复用 与 规范化
  */
 a {
@@ -387,7 +387,7 @@ h1 span{
     color:#fff;
 }
 /**
- * blog-article-sidebar
+ * daytask-article-sidebar
  * 
  */
 

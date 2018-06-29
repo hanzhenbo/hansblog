@@ -18,7 +18,7 @@
 
     $('#external-events .fc-event').each(function() {
 
-      // store data so the calendar knows to render an event upon drop
+      // store data so the daytask knows to render an event upon drop
       $(this).data('event', {
         title: $.trim($(this).text()), // use the element's text as the event title
         stick: true // maintain when user navigates (see docs on the renderEvent method)
@@ -34,7 +34,7 @@
     });
 
 
-    /* initialize the calendar
+    /* initialize the daytask
     -----------------------------------------------------------------*/
 
     $('#calendar').fullCalendar({
@@ -44,7 +44,7 @@
         right: 'month,agendaWeek,agendaDay'
       },
       editable: true,
-      droppable: true, // this allows things to be dropped onto the calendar
+      droppable: true, // this allows things to be dropped onto the daytask
       drop: function() {
         // is the "remove after drop" checkbox checked?
         if ($('#drop-remove').is(':checked')) {

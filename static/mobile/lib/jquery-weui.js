@@ -5062,11 +5062,11 @@ Device/OS Detection
         p.addValue(+ date);
       };
       p.updateValue = function () {
-          p.wrapper.find('.picker-calendar-day-selected').removeClass('picker-calendar-day-selected');
+          p.wrapper.find('.picker-daytask-day-selected').removeClass('picker-daytask-day-selected');
           var i, inputValue;
           for (i = 0; i < p.value.length; i++) {
               var valueDate = new Date(p.value[i]);
-              p.wrapper.find('.picker-calendar-day[data-date="' + valueDate.getFullYear() + '-' + valueDate.getMonth() + '-' + valueDate.getDate() + '"]').addClass('picker-calendar-day-selected');
+              p.wrapper.find('.picker-daytask-day[data-date="' + valueDate.getFullYear() + '-' + valueDate.getMonth() + '-' + valueDate.getDate() + '"]').addClass('picker-daytask-day-selected');
           }
           if (p.params.onChange) {
             p.params.onChange(p, p.value.map(formatDate), p.value.map(function (d) {
@@ -5183,15 +5183,15 @@ Device/OS Detection
 
           function handleDayClick(e) {
               if (!allowItemClick) return;
-              var day = $(e.target).parents('.picker-calendar-day');
+              var day = $(e.target).parents('.picker-daytask-day');
               if (day.length === 0 && $(e.target).hasClass('picker-calendar-day')) {
                   day = $(e.target);
               }
               if (day.length === 0) return;
-              // if (day.hasClass('picker-calendar-day-selected') && !p.params.multiple) return;
-              if (day.hasClass('picker-calendar-day-disabled')) return;
-              if (day.hasClass('picker-calendar-day-next')) p.nextMonth();
-              if (day.hasClass('picker-calendar-day-prev')) p.prevMonth();
+              // if (day.hasClass('picker-daytask-day-selected') && !p.params.multiple) return;
+              if (day.hasClass('picker-daytask-day-disabled')) return;
+              if (day.hasClass('picker-daytask-day-next')) p.nextMonth();
+              if (day.hasClass('picker-daytask-day-prev')) p.prevMonth();
               var dateYear = day.attr('data-year');
               var dateMonth = day.attr('data-month');
               var dateDay = day.attr('data-day');
@@ -5202,10 +5202,10 @@ Device/OS Detection
               if (p.params.closeOnSelect && !p.params.multiple) p.close();
           }
 
-          p.container.find('.picker-calendar-prev-month').on('click', p.prevMonth);
-          p.container.find('.picker-calendar-next-month').on('click', p.nextMonth);
-          p.container.find('.picker-calendar-prev-year').on('click', p.prevYear);
-          p.container.find('.picker-calendar-next-year').on('click', p.nextYear);
+          p.container.find('.picker-daytask-prev-month').on('click', p.prevMonth);
+          p.container.find('.picker-daytask-next-month').on('click', p.nextMonth);
+          p.container.find('.picker-daytask-prev-year').on('click', p.prevYear);
+          p.container.find('.picker-daytask-next-year').on('click', p.nextYear);
           p.wrapper.on('click', handleDayClick);
           if (p.params.touchMove) {
               p.wrapper.on($.touchEvents.start, handleTouchStart);
@@ -5214,10 +5214,10 @@ Device/OS Detection
           }
               
           p.container[0].f7DestroyCalendarEvents = function () {
-              p.container.find('.picker-calendar-prev-month').off('click', p.prevMonth);
-              p.container.find('.picker-calendar-next-month').off('click', p.nextMonth);
-              p.container.find('.picker-calendar-prev-year').off('click', p.prevYear);
-              p.container.find('.picker-calendar-next-year').off('click', p.nextYear);
+              p.container.find('.picker-daytask-prev-month').off('click', p.prevMonth);
+              p.container.find('.picker-daytask-next-month').off('click', p.nextMonth);
+              p.container.find('.picker-daytask-prev-year').off('click', p.prevYear);
+              p.container.find('.picker-daytask-next-year').off('click', p.nextYear);
               p.wrapper.off('click', handleDayClick);
               if (p.params.touchMove) {
                   p.wrapper.off($.touchEvents.start, handleTouchStart);
@@ -5283,14 +5283,14 @@ Device/OS Detection
                   var addClass = '';
                   if (dayNumber < 0) {
                       dayNumber = daysInPrevMonth + dayNumber + 1;
-                      addClass += ' picker-calendar-day-prev';
+                      addClass += ' picker-daytask-day-prev';
                       dayDate = new Date(month - 1 < 0 ? year - 1 : year, month - 1 < 0 ? 11 : month - 1, dayNumber).getTime();
                   }
                   else {
                       dayNumber = dayNumber + 1;
                       if (dayNumber > daysInMonth) {
                           dayNumber = dayNumber - daysInMonth;
-                          addClass += ' picker-calendar-day-next';
+                          addClass += ' picker-daytask-day-next';
                           dayDate = new Date(month + 1 > 11 ? year + 1 : year, month + 1 > 11 ? 0 : month + 1, dayNumber).getTime();
                       }
                       else {
@@ -5298,26 +5298,26 @@ Device/OS Detection
                       }
                   }
                   // Today
-                  if (dayDate === today) addClass += ' picker-calendar-day-today';
+                  if (dayDate === today) addClass += ' picker-daytask-day-today';
                   // Selected
-                  if (currentValues.indexOf(dayDate) >= 0) addClass += ' picker-calendar-day-selected';
+                  if (currentValues.indexOf(dayDate) >= 0) addClass += ' picker-daytask-day-selected';
                   // Weekend
                   if (p.params.weekendDays.indexOf(col - 1) >= 0) {
-                      addClass += ' picker-calendar-day-weekend';
+                      addClass += ' picker-daytask-day-weekend';
                   }
                   // Disabled
                   if ((minDate && dayDate < minDate) || (maxDate && dayDate > maxDate)) {
-                      addClass += ' picker-calendar-day-disabled';   
+                      addClass += ' picker-daytask-day-disabled';
                   }
 
                   dayDate = new Date(dayDate);
                   var dayYear = dayDate.getFullYear();
                   var dayMonth = dayDate.getMonth();
-                  rowHTML += '<div data-year="' + dayYear + '" data-month="' + dayMonth + '" data-day="' + dayNumber + '" class="picker-calendar-day' + (addClass) + '" data-date="' + (dayYear + '-' + dayMonth + '-' + dayNumber) + '"><span>'+dayNumber+'</span></div>';
+                  rowHTML += '<div data-year="' + dayYear + '" data-month="' + dayMonth + '" data-day="' + dayNumber + '" class="picker-daytask-day' + (addClass) + '" data-date="' + (dayYear + '-' + dayMonth + '-' + dayNumber) + '"><span>'+dayNumber+'</span></div>';
               }
-              monthHTML += '<div class="picker-calendar-row">' + rowHTML + '</div>';
+              monthHTML += '<div class="picker-daytask-row">' + rowHTML + '</div>';
           }
-          monthHTML = '<div class="picker-calendar-month" data-year="' + year + '" data-month="' + month + '">' + monthHTML + '</div>';
+          monthHTML = '<div class="picker-daytask-month" data-year="' + year + '" data-month="' + month + '">' + monthHTML + '</div>';
           return monthHTML;
       };
       p.animating = false;
@@ -5336,11 +5336,11 @@ Device/OS Detection
       };
       p.onMonthChangeStart = function (dir) {
           p.updateCurrentMonthYear(dir);
-          p.months.removeClass('picker-calendar-month-current picker-calendar-month-prev picker-calendar-month-next');
+          p.months.removeClass('picker-daytask-month-current picker-daytask-month-prev picker-daytask-month-next');
           var currentIndex = dir === 'next' ? p.months.length - 1 : 0;
 
-          p.months.eq(currentIndex).addClass('picker-calendar-month-current');
-          p.months.eq(dir === 'next' ? currentIndex - 1 : currentIndex + 1).addClass(dir === 'next' ? 'picker-calendar-month-prev' : 'picker-calendar-month-next');
+          p.months.eq(currentIndex).addClass('picker-daytask-month-current');
+          p.months.eq(dir === 'next' ? currentIndex - 1 : currentIndex + 1).addClass(dir === 'next' ? 'picker-daytask-month-prev' : 'picker-daytask-month-next');
 
           if (p.params.onMonthYearChangeStart) {
               p.params.onMonthYearChangeStart(p, p.currentYear, p.currentMonth);
@@ -5349,7 +5349,7 @@ Device/OS Detection
       p.onMonthChangeEnd = function (dir, rebuildBoth) {
           p.animating = false;
           var nextMonthHTML, prevMonthHTML, newMonthHTML;
-          p.wrapper.find('.picker-calendar-month:not(.picker-calendar-month-prev):not(.picker-calendar-month-current):not(.picker-calendar-month-next)').remove();
+          p.wrapper.find('.picker-daytask-month:not(.picker-daytask-month-prev):not(.picker-daytask-month-current):not(.picker-daytask-month-next)').remove();
           
           if (typeof dir === 'undefined') {
               dir = 'next';
@@ -5359,7 +5359,7 @@ Device/OS Detection
               newMonthHTML = p.monthHTML(new Date(p.currentYear, p.currentMonth), dir);
           }
           else {
-              p.wrapper.find('.picker-calendar-month-next, .picker-calendar-month-prev').remove();
+              p.wrapper.find('.picker-daytask-month-next, .picker-daytask-month-prev').remove();
               prevMonthHTML = p.monthHTML(new Date(p.currentYear, p.currentMonth), 'prev');
               nextMonthHTML = p.monthHTML(new Date(p.currentYear, p.currentMonth), 'next');
           }
@@ -5369,7 +5369,7 @@ Device/OS Detection
           if (dir === 'prev' || rebuildBoth) {
               p.wrapper.prepend(newMonthHTML || prevMonthHTML);
           }
-          p.months = p.wrapper.find('.picker-calendar-month');
+          p.months = p.wrapper.find('.picker-daytask-month');
           p.setMonthsTranslate(p.monthsTranslate);
           if (p.params.onMonthAdd) {
               p.params.onMonthAdd(p, dir === 'next' ? p.months.eq(p.months.length - 1)[0] : p.months.eq(0)[0]);
@@ -5381,13 +5381,13 @@ Device/OS Detection
       p.setMonthsTranslate = function (translate) {
           translate = translate || p.monthsTranslate || 0;
           if (typeof p.monthsTranslate === 'undefined') p.monthsTranslate = translate;
-          p.months.removeClass('picker-calendar-month-current picker-calendar-month-prev picker-calendar-month-next');
+          p.months.removeClass('picker-daytask-month-current picker-daytask-month-prev picker-daytask-month-next');
           var prevMonthTranslate = -(translate + 1) * 100 * inverter;
           var currentMonthTranslate = -translate * 100 * inverter;
           var nextMonthTranslate = -(translate - 1) * 100 * inverter;
-          p.months.eq(0).transform('translate3d(' + (p.isH ? prevMonthTranslate : 0) + '%, ' + (p.isH ? 0 : prevMonthTranslate) + '%, 0)').addClass('picker-calendar-month-prev');
-          p.months.eq(1).transform('translate3d(' + (p.isH ? currentMonthTranslate : 0) + '%, ' + (p.isH ? 0 : currentMonthTranslate) + '%, 0)').addClass('picker-calendar-month-current');
-          p.months.eq(2).transform('translate3d(' + (p.isH ? nextMonthTranslate : 0) + '%, ' + (p.isH ? 0 : nextMonthTranslate) + '%, 0)').addClass('picker-calendar-month-next');
+          p.months.eq(0).transform('translate3d(' + (p.isH ? prevMonthTranslate : 0) + '%, ' + (p.isH ? 0 : prevMonthTranslate) + '%, 0)').addClass('picker-daytask-month-prev');
+          p.months.eq(1).transform('translate3d(' + (p.isH ? currentMonthTranslate : 0) + '%, ' + (p.isH ? 0 : currentMonthTranslate) + '%, 0)').addClass('picker-daytask-month-current');
+          p.months.eq(2).transform('translate3d(' + (p.isH ? nextMonthTranslate : 0) + '%, ' + (p.isH ? 0 : nextMonthTranslate) + '%, 0)').addClass('picker-daytask-month-next');
       };
       p.nextMonth = function (transition) {
           if (typeof transition === 'undefined' || typeof transition === 'object') {
@@ -5407,9 +5407,9 @@ Device/OS Detection
           p.monthsTranslate --;
           if (nextMonth === p.currentMonth) {
               var nextMonthTranslate = -(p.monthsTranslate) * 100 * inverter;
-              var nextMonthHTML = $(p.monthHTML(nextDateTime, 'next')).transform('translate3d(' + (p.isH ? nextMonthTranslate : 0) + '%, ' + (p.isH ? 0 : nextMonthTranslate) + '%, 0)').addClass('picker-calendar-month-next');
+              var nextMonthHTML = $(p.monthHTML(nextDateTime, 'next')).transform('translate3d(' + (p.isH ? nextMonthTranslate : 0) + '%, ' + (p.isH ? 0 : nextMonthTranslate) + '%, 0)').addClass('picker-daytask-month-next');
               p.wrapper.append(nextMonthHTML[0]);
-              p.months = p.wrapper.find('.picker-calendar-month');
+              p.months = p.wrapper.find('.picker-daytask-month');
               if (p.params.onMonthAdd) {
                   p.params.onMonthAdd(p, p.months.eq(p.months.length - 1)[0]);
               }
@@ -5446,9 +5446,9 @@ Device/OS Detection
           p.monthsTranslate ++;
           if (prevMonth === p.currentMonth) {
               var prevMonthTranslate = -(p.monthsTranslate) * 100 * inverter;
-              var prevMonthHTML = $(p.monthHTML(prevDateTime, 'prev')).transform('translate3d(' + (p.isH ? prevMonthTranslate : 0) + '%, ' + (p.isH ? 0 : prevMonthTranslate) + '%, 0)').addClass('picker-calendar-month-prev');
+              var prevMonthHTML = $(p.monthHTML(prevDateTime, 'prev')).transform('translate3d(' + (p.isH ? prevMonthTranslate : 0) + '%, ' + (p.isH ? 0 : prevMonthTranslate) + '%, 0)').addClass('picker-daytask-month-prev');
               p.wrapper.prepend(prevMonthHTML[0]);
-              p.months = p.wrapper.find('.picker-calendar-month');
+              p.months = p.wrapper.find('.picker-daytask-month');
               if (p.params.onMonthAdd) {
                   p.params.onMonthAdd(p, p.months.eq(0)[0]);
               }
@@ -5503,18 +5503,18 @@ Device/OS Detection
               p.monthsTranslate --;
               if (!p.animating) p.months.eq(p.months.length - 1).remove();
               p.wrapper.append(newMonthHTML);
-              p.months = p.wrapper.find('.picker-calendar-month');
+              p.months = p.wrapper.find('.picker-daytask-month');
               monthTranslate = -(prevTranslate - 1) * 100 * inverter;
-              p.months.eq(p.months.length - 1).transform('translate3d(' + (p.isH ? monthTranslate : 0) + '%, ' + (p.isH ? 0 : monthTranslate) + '%, 0)').addClass('picker-calendar-month-next');
+              p.months.eq(p.months.length - 1).transform('translate3d(' + (p.isH ? monthTranslate : 0) + '%, ' + (p.isH ? 0 : monthTranslate) + '%, 0)').addClass('picker-daytask-month-next');
           }
           else {
               // To prev
               p.monthsTranslate ++;
               if (!p.animating) p.months.eq(0).remove();
               p.wrapper.prepend(newMonthHTML);
-              p.months = p.wrapper.find('.picker-calendar-month');
+              p.months = p.wrapper.find('.picker-daytask-month');
               monthTranslate = -(prevTranslate + 1) * 100 * inverter;
-              p.months.eq(0).transform('translate3d(' + (p.isH ? monthTranslate : 0) + '%, ' + (p.isH ? 0 : monthTranslate) + '%, 0)').addClass('picker-calendar-month-prev');
+              p.months.eq(0).transform('translate3d(' + (p.isH ? monthTranslate : 0) + '%, ' + (p.isH ? 0 : monthTranslate) + '%, 0)').addClass('picker-daytask-month-prev');
           }
           if (p.params.onMonthAdd) {
               p.params.onMonthAdd(p, dir === 'next' ? p.months.eq(p.months.length - 1)[0] : p.months.eq(0)[0]);
@@ -5550,19 +5550,19 @@ Device/OS Detection
           var prevMonthHTML = p.monthHTML(layoutDate, 'prev');
           var currentMonthHTML = p.monthHTML(layoutDate);
           var nextMonthHTML = p.monthHTML(layoutDate, 'next');
-          var monthsHTML = '<div class="picker-calendar-months"><div class="picker-calendar-months-wrapper">' + (prevMonthHTML + currentMonthHTML + nextMonthHTML) + '</div></div>';
+          var monthsHTML = '<div class="picker-daytask-months"><div class="picker-daytask-months-wrapper">' + (prevMonthHTML + currentMonthHTML + nextMonthHTML) + '</div></div>';
           // Week days header
           var weekHeaderHTML = '';
           if (p.params.weekHeader) {
               for (i = 0; i < 7; i++) {
                   var weekDayIndex = (i + p.params.firstDay > 6) ? (i - 7 + p.params.firstDay) : (i + p.params.firstDay);
                   var dayName = p.params.dayNamesShort[weekDayIndex];
-                  weekHeaderHTML += '<div class="picker-calendar-week-day ' + ((p.params.weekendDays.indexOf(weekDayIndex) >= 0) ? 'picker-calendar-week-day-weekend' : '') + '"> ' + dayName + '</div>';
+                  weekHeaderHTML += '<div class="picker-daytask-week-day ' + ((p.params.weekendDays.indexOf(weekDayIndex) >= 0) ? 'picker-daytask-week-day-weekend' : '') + '"> ' + dayName + '</div>';
                   
               }
-              weekHeaderHTML = '<div class="picker-calendar-week-days">' + weekHeaderHTML + '</div>';
+              weekHeaderHTML = '<div class="picker-daytask-week-days">' + weekHeaderHTML + '</div>';
           }
-          pickerClass = 'weui-picker-calendar ' + (p.params.cssClass || '');
+          pickerClass = 'weui-picker-daytask ' + (p.params.cssClass || '');
           if(!p.inline) pickerClass = 'weui-picker-modal ' + pickerClass;
           var toolbarHTML = p.params.toolbar ? p.params.toolbarTemplate.replace(/{{closeText}}/g, p.params.toolbarCloseText) : '';
           if (p.params.toolbar) {
@@ -5671,7 +5671,7 @@ Device/OS Detection
 
               // Append
               if (toPopover) {
-                  p.pickerHTML = '<div class="popover popover-picker-calendar"><div class="popover-inner">' + p.pickerHTML + '</div></div>';
+                  p.pickerHTML = '<div class="popover popover-picker-daytask"><div class="popover-inner">' + p.pickerHTML + '</div></div>';
                   p.popover = $.popover(p.pickerHTML, p.params.input, true);
                   p.container = $(p.popover).find('.weui-picker-modal');
                   $(p.popover).on('close', function () {
@@ -5691,12 +5691,12 @@ Device/OS Detection
                   });
               }
 
-              // Store calendar instance
+              // Store daytask instance
               p.container[0].f7Calendar = p;
-              p.wrapper = p.container.find('.picker-calendar-months-wrapper');
+              p.wrapper = p.container.find('.picker-daytask-months-wrapper');
 
               // Months
-              p.months = p.wrapper.find('.picker-calendar-month');
+              p.months = p.wrapper.find('.picker-daytask-month');
 
               // Update current month and year
               p.updateCurrentMonthYear();
@@ -5811,17 +5811,17 @@ Device/OS Detection
     closeOnSelect: true,
     monthPicker: true,
     monthPickerTemplate: 
-        '<div class="picker-calendar-month-picker">' +
-            '<a href="javascript:;" class="link icon-only picker-calendar-prev-month"><i class="icon icon-prev"></i></a>' +
+        '<div class="picker-daytask-month-picker">' +
+            '<a href="javascript:;" class="link icon-only picker-daytask-prev-month"><i class="icon icon-prev"></i></a>' +
             '<div class="current-month-value"></div>' +
-            '<a href="javascript:;" class="link icon-only picker-calendar-next-month"><i class="icon icon-next"></i></a>' +
+            '<a href="javascript:;" class="link icon-only picker-daytask-next-month"><i class="icon icon-next"></i></a>' +
         '</div>',
     yearPicker: true,
     yearPickerTemplate: 
-        '<div class="picker-calendar-year-picker">' +
-            '<a href="javascript:;" class="link icon-only picker-calendar-prev-year"><i class="icon icon-prev"></i></a>' +
+        '<div class="picker-daytask-year-picker">' +
+            '<a href="javascript:;" class="link icon-only picker-daytask-prev-year"><i class="icon icon-prev"></i></a>' +
             '<span class="current-year-value"></span>' +
-            '<a href="javascript:;" class="link icon-only picker-calendar-next-year"><i class="icon icon-next"></i></a>' +
+            '<a href="javascript:;" class="link icon-only picker-daytask-next-year"><i class="icon icon-next"></i></a>' +
         '</div>',
     weekHeader: true,
     // Common settings

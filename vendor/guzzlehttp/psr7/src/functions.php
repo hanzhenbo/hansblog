@@ -664,7 +664,7 @@ function mimetype_from_extension($extension)
         'htm' => 'text/html',
         'html' => 'text/html',
         'ico' => 'image/x-icon',
-        'ics' => 'text/calendar',
+        'ics' => 'text/daytask',
         'ini' => 'text/plain',
         'iso' => 'application/x-iso9660-image',
         'jar' => 'application/java-archive',

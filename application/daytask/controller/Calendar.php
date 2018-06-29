@@ -5,7 +5,7 @@
  * Date: 2018/6/9
  * Time: 9:21
  */
-namespace app\blog\controller;
+namespace app\daytask\controller;
 
 use think\Controller;
 use think\Db;
@@ -19,7 +19,7 @@ class Calendar extends Controller
 
     public function task()
     {
-        $db = Db::name('edu_task');
+        $db = Db::name('hans_daytask');
         $query = $db->select();
         $res = $query;
         foreach ($query as $key=>$value){
@@ -53,7 +53,7 @@ class Calendar extends Controller
             $update['end'] = strtotime($end_addtime);
             $update['allDay'] = '0';
         }
-        $edit = Db('edu_task')->where('id','=',$id)->update($update);
+        $edit = Db('hans_daytask')->where('id','=',$id)->update($update);
         if ($edit){
             return ['state'=>1,'msg'=>'修改成功'];
         }else{
@@ -84,7 +84,7 @@ class Calendar extends Controller
         $num = rand(100000,999999);
         $color = '#'.$num;
         $update['color'] = $color;
-        $edit = Db('edu_task')->insert($update);
+        $edit = Db('hans_daytask')->insert($update);
         if ($edit){
             return ['state'=>1,'msg'=>'添加成功'];
         }else{
@@ -113,7 +113,7 @@ class Calendar extends Controller
             ];
         }
 
-        $edit = Db('edu_task')->where('id','=',$id)->update($update);
+        $edit = Db('hans_daytask')->where('id','=',$id)->update($update);
 
         if ($edit){
             return ['state'=>1];

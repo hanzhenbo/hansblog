@@ -222,7 +222,7 @@ var GcalEventSource = /** @class */ (function (_super) {
             return null;
         }
         // The API expects an ISO8601 datetime with a time and timezone part.
-        // Since the calendar's timezone offset isn't always known, request the date in UTC and pad it by a day on each
+        // Since the daytask's timezone offset isn't always known, request the date in UTC and pad it by a day on each
         // side, guaranteeing we will receive all events in the desired range, albeit a superset.
         // .utc() will set a zone and give it a 00:00:00 time.
         if (!start.hasZone()) {
@@ -278,7 +278,7 @@ var GcalEventSource = /** @class */ (function (_super) {
         }
         $.extend(this.ajaxSettings, rawProps);
     };
-    GcalEventSource.API_BASE = 'https://www.googleapis.com/calendar/v3/calendars';
+    GcalEventSource.API_BASE = 'https://www.googleapis.com/daytask/v3/calendars';
     return GcalEventSource;
 }(fullcalendar_1.EventSource));
 exports.default = GcalEventSource;
@@ -293,7 +293,7 @@ GcalEventSource.defineStandardProps({
 function parseGoogleCalendarId(url) {
     var match;
     // detect if the ID was specified as a single string.
-    // will match calendars like "asdf1234@calendar.google.com" in addition to person email calendars.
+    // will match calendars like "asdf1234@daytask.google.com" in addition to person email calendars.
     if (/^[^\/]+@([^\/\.]+\.)*(google|googlemail|gmail)\.com$/.test(url)) {
         return url;
     }

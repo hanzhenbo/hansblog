@@ -58,7 +58,7 @@
       });
     });
 
-    // when the timezone selector changes, dynamically change the calendar option
+    // when the timezone selector changes, dynamically change the daytask option
     $('#timezone-selector').on('change', function() {
       $('#calendar').fullCalendar('option', 'timezone', this.value || false);
     });

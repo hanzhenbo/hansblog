@@ -50789,7 +50789,7 @@ var createGraphFromNodeEdge = function (nodes, edges, seriesModel, directed, bef
         var coordSysCtor = CoordinateSystemManager.get(coordSys);
         var coordDimensions = (coordSysCtor && coordSysCtor.type !== 'view')
             ? (coordSysCtor.dimensions || []) : [];
-        // FIXME: Some geo do not need `value` dimenson, whereas `calendar` needs
+        // FIXME: Some geo do not need `value` dimenson, whereas `daytask` needs
         // `value` dimension, but graph need `value` dimension. It's better to
         // uniform this behavior.
         if (indexOf(coordDimensions, 'value') < 0) {
@@ -76346,7 +76346,7 @@ extendComponentView({
 */
 
 /**
- * @file calendar.js
+ * @file daytask.js
  * @author dxh
  */
 
