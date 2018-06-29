@@ -7,8 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit5e7dfe06a0c94be3739014b646ee31c6
 {
     public static $files = array (
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        'a9ed0d27b5a698798a89181429f162c5' => __DIR__ . '/..' . '/khanamiryan/qrcode-detector-decoder/lib/Common/customFunctions.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '841780ea2e1d6545ea3a253239d59c05' => __DIR__ . '/..' . '/qiniu/php-sdk/src/Qiniu/functions.php',
         '1cfd2761b63b0a29ed23657ea394cb2d' => __DIR__ . '/..' . '/topthink/think-captcha/src/helper.php',
@@ -26,6 +28,10 @@ class ComposerStaticInit5e7dfe06a0c94be3739014b646ee31c6
         array (
             'app\\' => 4,
         ),
+        'Z' => 
+        array (
+            'Zxing\\' => 6,
+        ),
         'W' => 
         array (
             'WePay\\' => 6,
@@ -35,7 +41,10 @@ class ComposerStaticInit5e7dfe06a0c94be3739014b646ee31c6
         ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Symfony\\Component\\PropertyAccess\\' => 33,
             'Symfony\\Component\\OptionsResolver\\' => 34,
+            'Symfony\\Component\\Inflector\\' => 28,
         ),
         'Q' => 
         array (
@@ -49,6 +58,10 @@ class ComposerStaticInit5e7dfe06a0c94be3739014b646ee31c6
         array (
             'OSS\\' => 4,
         ),
+        'M' => 
+        array (
+            'MyCLabs\\Enum\\' => 13,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -58,6 +71,7 @@ class ComposerStaticInit5e7dfe06a0c94be3739014b646ee31c6
         'E' => 
         array (
             'Endroid\\QrCode\\' => 15,
+            'Endroid\\Installer\\' => 18,
         ),
     );
 
@@ -78,6 +92,10 @@ class ComposerStaticInit5e7dfe06a0c94be3739014b646ee31c6
         array (
             0 => __DIR__ . '/../..' . '/application',
         ),
+        'Zxing\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/khanamiryan/qrcode-detector-decoder/lib',
+        ),
         'WePay\\' => 
         array (
             0 => __DIR__ . '/..' . '/zoujingli/wechat-developer/WePay',
@@ -96,9 +114,21 @@ class ComposerStaticInit5e7dfe06a0c94be3739014b646ee31c6
             0 => __DIR__ . '/..' . '/zoujingli/wechat-developer/WeChat',
             1 => __DIR__ . '/..' . '/zoujingli/weopen-developer/WeChat',
         ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'Symfony\\Component\\PropertyAccess\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/property-access',
+        ),
         'Symfony\\Component\\OptionsResolver\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/options-resolver',
+        ),
+        'Symfony\\Component\\Inflector\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/inflector',
         ),
         'Qiniu\\' => 
         array (
@@ -111,6 +141,10 @@ class ComposerStaticInit5e7dfe06a0c94be3739014b646ee31c6
         'OSS\\' => 
         array (
             0 => __DIR__ . '/..' . '/aliyuncs/oss-sdk-php/src/OSS',
+        ),
+        'MyCLabs\\Enum\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/myclabs/php-enum/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
@@ -128,6 +162,20 @@ class ComposerStaticInit5e7dfe06a0c94be3739014b646ee31c6
         array (
             0 => __DIR__ . '/..' . '/endroid/qr-code/src',
         ),
+        'Endroid\\Installer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/endroid/installer/src',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'B' => 
+        array (
+            'BaconQrCode' => 
+            array (
+                0 => __DIR__ . '/..' . '/bacon/bacon-qr-code/src',
+            ),
+        ),
     );
 
     public static $classMap = array (
@@ -140,6 +188,7 @@ class ComposerStaticInit5e7dfe06a0c94be3739014b646ee31c6
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit5e7dfe06a0c94be3739014b646ee31c6::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit5e7dfe06a0c94be3739014b646ee31c6::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit5e7dfe06a0c94be3739014b646ee31c6::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit5e7dfe06a0c94be3739014b646ee31c6::$classMap;
 
         }, null, ClassLoader::class);

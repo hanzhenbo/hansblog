@@ -86,7 +86,39 @@ class Blogmanage extends BasicAdmin
             }else{
                 $this->error('修改失败');
             }
+    }
 
+    /**
+     * @二维码
+     */
+    public function qrcode()
+    {
+        $request = $this->request;
+        if ($request->isGet()) {
+            $id = $request->get()['article_id'];
+            return $this->fetch('', ['id'=>$id]);
+        }
+    }
 
+    public function createQrCode()
+    {
+        $request = $this->request;
+        $articleid = $request->get()['article_id'];
+        if ($articleid) {
+            $url = 'http://'.$_SERVER['HTTP_HOST']. $articleid;
+            $data = [
+                'msg' => 1,
+                'url' => $url,
+                'data' => \QRCode::createQRCodeString($url, 150)
+            ];
+            return json_encode($data);
+        } else {
+            $data = [
+                'msg' => 0,
+                'url' => '',
+                'data' => ''
+            ];
+            return json_encode($data);
+        }
     }
 }

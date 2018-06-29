@@ -54,11 +54,12 @@
             <th class='list-table-check-td think-checkbox'>
                 <input data-auto-none="none" data-check-target='.list-check-box' type='checkbox'/>
             </th>
-            <th class='text-center'>用户id</th>
+            <th class='text-center'>文章id</th>
             <th class='text-center'>标题</th>
             <th class='text-center'>摘要</th>
             <th class='text-center'>创建时间</th>
             <th class='text-center'>状态</th>
+            <th class='text-center'>文章二维码</th>
             <th class='text-center'>操作</th>
         </tr>
         </thead>
@@ -69,11 +70,16 @@
                 <input class="list-check-box" value='{$vo.id}' type='checkbox'/>
             </td>
             <td class='text-center'>{$vo.id}</td>
-            <td class='text-center'>{$vo.title}</td>
+            <td class='text-center'><a href="">{$vo.title}</a></td>
             <td class="text-center">{$vo.abstracts}</td>
             <td class='text-center'>{$vo.create_at|date="Y-m-d H:i:s"}</td>
             <td class='text-center'>
                 {if $vo.status eq 0}<span class="color-red">已禁用</span>{elseif $vo.status eq 1}<span class="color-green">使用中</span>{/if}
+            </td>
+            <td class='text-center'>
+                <a class="layui-btn-xs layui-btn-primary" data-modal='{:url("$classuri/qrcode")}?article_id={$vo.id}'>
+                    <i class="fa fa-qrcode"></i>
+                </a>
             </td>
             <td class='nowrap text-center'>
 
