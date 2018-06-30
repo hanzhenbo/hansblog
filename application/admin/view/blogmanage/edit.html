@@ -26,10 +26,13 @@
         <!--<div class="layui-input-block">-->
             <!--<img class="notselect" data-tips-image src="{$article.img}" style="width:80px;">-->
         <!--</div>-->
-        <div class="layui-input-block">
-            <input type="hidden" name="img" value="{$article.img|default=''}">
-            <script>$('[name=img]').uploadOneImage()</script>
-        </div>
+        <!--<div class="layui-input-block">-->
+            <!--<input type="hidden" name="img" value="{$article.img|default=''}">-->
+            <!--<script>$('[name=img]').uploadOneImage()</script>-->
+        <!--</div>-->
+        <img data-tips-image style="height:auto;max-height:32px;min-width:32px" src='{$article.img|default=""}'/>
+        <input type="hidden" name="img" onchange="$(this).prev('img').attr('src', this.value)" value='{$article.img|default=""}' class="layui-input">
+        <a class="btn btn-link" data-file="one" data-uptype="local" data-type="ico,png" data-field="img">修改图片</a>
     </div>
 
     <div class="hr-line-dashed"></div>
