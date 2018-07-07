@@ -6,21 +6,41 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>记录</title>
+    <link rel="stylesheet" href="/static/assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="/static/assets/css/app.css">
+    <style>
+        .form{
+
+        }
+    </style>
 </head>
 <body>
+
+<div class="am-u-md-8 am-u-sm-12">
+    <form class="am-form am-g" method="post" action="{:url('writeblog')}">
+        <h3 class="blog-comment">文章</h3>
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530852240673&di=c3bba08be488470282969762094cdcb1&imgtype=0&src=http%3A%2F%2Fpic12.nipic.com%2F20110113%2F3393020_174934680000_2.gif" class="image" alt="">
+        <article class="am-article blog-article-p form">
+            标题<input type="text" name="title" class="am-input-sm" data-validation-message="请输入标题" placeholder="" required/>
+            摘要<input type="text" name="abstracts" class="am-input-sm" data-validation-message="请输入标题" placeholder="" required/>
+            <div class="am-form-group">
+                <textarea class="" rows="5" placeholder="一字千金" name="content"></textarea>
+            </div>
+            <p><button type="submit" class="am-btn am-btn-default">发表文章</button></p>
+        </article>
+    </form>
+</div>
+
+
 <!-- 加载编辑器的容器 -->
-<form action="{:url('writeblog')}" method="post" style="width: 50%">
-    标题<input type="text" name="title">
-    摘要<input type="text" name="abstracts">
-    <script id="container" name="content" type="text/plain"></script>
-    <input type="submit">
-</form>
 <!-- 配置文件 -->
-<script type="text/javascript" src="../../../../static/js/ueditor.config.js"></script>
+<script src="/static/plugs/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/static/plugs/ckeditor/ckeditor.js"></script>
 <!-- 编辑器源码文件 -->
-<script type="text/javascript" src="../../../../static/js/ueditor.all.js"></script>
+<!--<script type="text/javascript" src="/static/js/ueditor.all.js"></script>-->
 <!-- 实例化编辑器 -->
-<script type="text/javascript">var ue = UE.getEditor('container');
+<script type="text/javascript">
+window.createEditor('[name="content"]', {height: 100,width:300});
 </script>
 </body>
 </html>
