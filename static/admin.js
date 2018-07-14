@@ -36,9 +36,25 @@ $(function () {
             if (!('placeholder' in document.createElement('input'))) {
                 $(':input[placeholder]').map(function () {
                     var self = $(this), txt = self.attr('placeholder');
-                    self.wrap($('<div></div>').css({zoom: '1', margin: 'none', border: 'none', padding: 'none', background: 'none', position: 'relative'}));
+                    self.wrap($('<div></div>').css({
+                        zoom: '1',
+                        margin: 'none',
+                        border: 'none',
+                        padding: 'none',
+                        background: 'none',
+                        position: 'relative'
+                    }));
                     var pos = self.position(), h = self.outerHeight(true), paddingleft = self.css('padding-left');
-                    var holder = $('<span></span>').text(txt).css({position: 'absolute', left: pos.left, top: pos.top, height: h, lineHeight: h + 'px', paddingLeft: paddingleft, color: '#aaa', zIndex: '999'}).appendTo(self.parent());
+                    var holder = $('<span></span>').text(txt).css({
+                        position: 'absolute',
+                        left: pos.left,
+                        top: pos.top,
+                        height: h,
+                        lineHeight: h + 'px',
+                        paddingLeft: paddingleft,
+                        color: '#aaa',
+                        zIndex: '999'
+                    }).appendTo(self.parent());
                     self.on('focusin focusout change keyup', function () {
                         self.val() ? holder.hide() : holder.show();
                     });
@@ -55,7 +71,7 @@ $(function () {
     /*! 消息组件实例 */
     $.msg = new function () {
         var self = this;
-        this.shade = [0.02, '#000'];
+        this.shade = [0.3, '#000'];
         this.dialogIndexs = [];
         // 关闭消息框
         this.close = function (index) {
@@ -78,12 +94,26 @@ $(function () {
         };
         // 显示成功类型的消息
         this.success = function (msg, time, callback) {
-            var index = layer.msg(msg, {icon: 1, shade: this.shade, scrollbar: false, end: callback, time: (time || 2) * 1000, shadeClose: true});
+            var index = layer.msg(msg, {
+                icon: 1,
+                shade: this.shade,
+                scrollbar: false,
+                end: callback,
+                time: (time || 2) * 1000,
+                shadeClose: true
+            });
             return this.dialogIndexs.push(index), index;
         };
         // 显示失败类型的消息
         this.error = function (msg, time, callback) {
-            var index = layer.msg(msg, {icon: 2, shade: this.shade, scrollbar: false, time: (time || 3) * 1000, end: callback, shadeClose: true});
+            var index = layer.msg(msg, {
+                icon: 2,
+                shade: this.shade,
+                scrollbar: false,
+                time: (time || 3) * 1000,
+                end: callback,
+                shadeClose: true
+            });
             return this.dialogIndexs.push(index), index;
         };
         // 状态消息提示
@@ -93,7 +123,13 @@ $(function () {
         };
         // 显示正在加载中的提示
         this.loading = function (msg, callback) {
-            var index = msg ? layer.msg(msg, {icon: 16, scrollbar: false, shade: this.shade, time: 0, end: callback}) : layer.load(2, {time: 0, scrollbar: false, shade: this.shade, end: callback});
+            var index = msg ? layer.msg(msg, {
+                icon: 16,
+                scrollbar: false,
+                shade: this.shade,
+                time: 0,
+                end: callback
+            }) : layer.load(2, {time: 0, scrollbar: false, shade: this.shade, end: callback});
             return this.dialogIndexs.push(index), index;
         };
         // 自动处理显示Think返回的Json数据
@@ -118,7 +154,7 @@ $(function () {
         // 内容区域动态加载后初始化
         this.reInit = function ($container) {
             $.vali.listen(this), JPlaceHolder.init();
-            $container.find('[required]').parent().prevAll('label').addClass('label-required');
+            $container.find('[required]').parent().prev('label').addClass('label-required');
         };
         // 在内容区显示视图
         this.show = function (html) {
@@ -185,8 +221,17 @@ $(function () {
             }, loading, tips);
         };
         // 打开一个iframe窗口
-        this.iframe = function (url, title) {
-            return layer.open({title: title || '窗口', type: 2, area: ['800px', '530px'], fix: true, maxmin: false, content: url});
+        this.iframe = function (url, title, area) {
+            area = area || ['800px', '530px'];
+            return layer.open({
+                title: title || '窗口',
+                type: 2,
+                area: area,
+                fix: true,
+                maxmin: false,
+                content: url,
+                skin: 'layui-layer-lan'
+            });
         };
         // 加载HTML到弹出层
         this.modal = function (url, data, title, callback, loading, tips) {
@@ -195,7 +240,12 @@ $(function () {
                     return $.msg.auto(res);
                 }
                 var layerIndex = layer.open({
-                    type: 1, btn: false, area: "800px", content: res, title: title || '', success: function (dom, index) {
+                    type: 1,
+                    btn: false,
+                    area: "800px",
+                    content: res,
+                    title: title || '',
+                    success: function (dom, index) {
                         $(dom).find('[data-close]').off('click').on('click', function () {
                             if ($(this).attr('data-confirm')) {
                                 var confirmIndex = $.msg.confirm($(this).attr('data-confirm'), function () {
@@ -380,7 +430,8 @@ $(function () {
                 }
                 var allpass = true;
                 if (type === "radio" && isRequired) {
-                    var radiopass = false, eleRadios = input.name ? $("input[type='radio'][name='" + input.name + "']") : $(input);
+                    var radiopass = false,
+                        eleRadios = input.name ? $("input[type='radio'][name='" + input.name + "']") : $(input);
                     eleRadios.each(function () {
                         (radiopass === false && $(this).is("[checked]")) && (radiopass = true);
                     });
@@ -414,7 +465,11 @@ $(function () {
             // 错误消息标签插入
             this.insertError = function (ele) {
                 var $html = $('<span style="-webkit-animation-duration:.2s;animation-duration:.2s;padding-right:20px;color:#a94442;position:absolute;right:0;font-size:12px;z-index:2;display:block;width:34px;text-align:center;pointer-events:none"></span>');
-                $html.css({top: $(ele).position().top + 'px', paddingBottom: $(ele).css('paddingBottom'), lineHeight: $(ele).css('height')});
+                $html.css({
+                    top: $(ele).position().top + 'px',
+                    paddingBottom: $(ele).css('paddingBottom'),
+                    lineHeight: $(ele).css('height')
+                });
                 $(ele).data('input-info') || $(ele).data('input-info', $html.insertAfter(ele));
             };
             // 表单验证入口
@@ -567,11 +622,11 @@ $(function () {
     /*! 注册 data-update 事件行为 */
     $body.on('click', '[data-update]', function () {
         var id = $(this).attr('data-update') || (function () {
-            var data = [];
-            return $($(this).attr('data-list-target') || 'input.list-check-box').map(function () {
-                (this.checked) && data.push(this.value);
-            }), data.join(',');
-        }).call(this);
+                var data = [];
+                return $($(this).attr('data-list-target') || 'input.list-check-box').map(function () {
+                    (this.checked) && data.push(this.value);
+                }), data.join(',');
+            }).call(this);
         if (id.length < 1) {
             return $.msg.tips('请选择需要操作的数据！');
         }
@@ -580,6 +635,20 @@ $(function () {
         $.msg.confirm('确定要操作这些数据吗？', function () {
             $.form.load(action, {field: field, value: value, id: id}, 'post');
         });
+    });
+
+    $body.on('click', '[data-multi-modal]', function () {
+        var id = $(this).attr('data-update') || (function () {
+                var data = [];
+                return $($(this).attr('data-list-target') || 'input.list-check-box').map(function () {
+                    (this.checked) && data.push(this.value);
+                }), data.join(',');
+            }).call(this);
+        if (id.length < 1) {
+            return $.msg.tips('请选择需要操作的数据！');
+        }
+        var area = eval($(this).attr('data-area')) || ['800px', '360px'];
+        return $.form.modal($(this).attr('data-action'), 'open_type=modal&id=' + id, $(this).attr('data-title') || '编辑', null, false, '请稍候', area);
     });
 
     /*! 注册 data-href 事件行为 */
@@ -604,7 +673,7 @@ $(function () {
 
     /*! 注册 data-iframe 事件行为 */
     $body.on('click', '[data-iframe]', function () {
-        $.form.iframe($(this).attr('data-iframe'), $(this).attr('data-title') || '窗口');
+        $.form.iframe($(this).attr('data-iframe'), $(this).attr('data-title') || '窗口', eval($(this).attr('data-area')));
     });
 
     /*! 注册 data-icon 事件行为 */
@@ -616,7 +685,7 @@ $(function () {
 
     /*! 注册 data-tips-image 事件行为 */
     $body.on('click', '[data-tips-image]', function () {
-        var img = new Image(), index = $.msg.loading();
+        var img = new Image(), src = this.getAttribute('data-tips-image') || this.src;
         var imgWidth = this.getAttribute('data-width') || '480px';
         img.onload = function () {
             var $content = $(img).appendTo('body').css({background: '#fff', width: imgWidth, height: 'auto'});
@@ -625,16 +694,10 @@ $(function () {
                 skin: 'layui-layer-nobg', shadeClose: true, content: $content,
                 end: function () {
                     $(img).remove();
-                },
-                success: function () {
-                    $.msg.close(index);
                 }
             });
         };
-        img.onerror = function (e) {
-            $.msg.close(index);
-        };
-        img.src = this.getAttribute('data-tips-image') || this.src;
+        img.src = src;
     });
 
     /*! 注册 data-tips-text 事件行为 */
@@ -645,11 +708,23 @@ $(function () {
 
     /*! 注册 data-phone-view 事件行为 */
     $body.on('click', '[data-phone-view]', function () {
-        var $container = $('<div class="mobile-preview pull-left"><div class="mobile-header">公众号</div><div class="mobile-body"><iframe id="phone-preview" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>').appendTo('body');
-        $container.find('iframe').attr('src', this.getAttribute('data-phone-view') || this.href);
+        var style = '';
+        if($(this).attr('scrolling') == 'yes'){
+            var $container = $('<div class="mobile-preview pull-left"><div class="mobile-header">公众号</div><div class="mobile-body"><iframe id="phone-preview" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0"></iframe></div></div>').appendTo('body');
+            $style = "<style>body {position: absolute; left: 0;overflow-x: hidden;overflow-y: scroll;}body::-webkit-scrollbar {display: none;} </style>";
+            $container.find('iframe').attr('src', this.getAttribute('data-phone-view') || this.href);
+        }else{
+            var $container = $('<div class="mobile-preview pull-left"><div class="mobile-header">公众号</div><div class="mobile-body"><iframe id="phone-preview" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>').appendTo('body');
+            $container.find('iframe').attr('src', this.getAttribute('data-phone-view') || this.href);
+        }
         layer.style(layer.open({
             type: 1, scrollbar: !1, area: ['335px', '600px'], title: !1,
             closeBtn: 1, skin: 'layui-layer-nobg', shadeClose: !1, content: $container,
+            success:function(){  // 右侧滚动条
+                $("#phone-preview").load(function(){
+                    $("#phone-preview").contents().find("body").append($style);
+                });
+            },
             end: function () {
                 $container.remove();
             }

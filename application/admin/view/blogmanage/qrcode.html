@@ -9,7 +9,10 @@
                     class="layui-btn layui-btn-small layui-btn-success create"><i class="fa fa-qrcode"> </i></button>
             <tr>
                 <th class="text-center">链接:</th>
-                <td><code id="code"></code></td>
+                <td>
+                    <code id="code"></code>
+                    <a id="preview" scrolling="yes" class="layui-btn layui-btn-xs layui-btn-normal">预览</a>
+                </td>
             </tr>
             <tr>
                 <th class="text-center">二维码</th>
@@ -31,6 +34,7 @@
             var arr = JSON.parse(data);
             if (arr.msg == 1) {
                 $('#code').text(arr.url);
+                $('#preview').attr('data-phone-view', arr.url);
                 $('#ewm').attr("src", 'data:image/png;base64,' + arr.data)
             } else {
                 return layer.msg('生成二维码失败');
