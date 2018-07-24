@@ -1,0 +1,32 @@
+{extend name='admin@public/content'}
+
+{block name="content"}
+<form autocomplete="off" onsubmit="return false;" action="{:request()->url()}" data-auto="true" method="post" class='form-horizontal layui-form padding-top-20'>
+    <div class="form-group">
+        <label class="col-sm-2 control-label label-required">商品图片</label>
+        <div class='col-sm-8'>
+            <table class="layui-table background-item margin-none" lay-size="sm" lay-skin="nob">
+                <thead>
+                <tr>
+                    <td>商品图片</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="text-top">
+                        <input type="hidden" name="url" value="{$vo.url|default=''}">
+                        <script>$('[name="url"]').uploadMultipleImage();</script>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="hr-line-dashed"></div>
+    <div class="col-sm-7 col-sm-offset-2">
+        <div class="layui-form-item text-center">
+            <button class="layui-btn" type="submit">保 存</button>
+        </div>
+    </div>
+</form>
+{/block}

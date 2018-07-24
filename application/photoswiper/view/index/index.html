@@ -25,17 +25,17 @@
                 <div id="demo-test-gallery">
 
                     <div class="gallery-row">
+                        {foreach $list as $key=>$vo}
+                        {if !empty($vo.url)}
                         <div class="gallery-item">
                             <a href="javascript:void(0)">
-                                <img data="/static/photoswiper/images/b1.png" onclick="show_glr($(this))"
-                                     src="/static/photoswiper/images/b1.png" alt="Image 001"
+                                <img data="{$vo.url}" onclick="show_glr($(this))"
+                                     src="{$vo.url}" alt="Image 001"
                                      style="border-radius:5%"/>
                             </a>
                         </div>
-                        <div class="gallery-item"><a href="javascript:void(0)">
-                            <img data="/static/photoswiper/images/b2.png" onclick="show_glr($(this))"
-                                 src="/static/photoswiper/images/b2.png" alt="Image 001"
-                                 style="border-radius:5%"/></a></div>
+                        {/if}
+                        {/foreach}
                     </div>
                 </div>
                 <!--这里是内容-->
@@ -43,7 +43,6 @@
         </div>
     </div>
 </div>
-
 
 <div id="demo-test-gallery2" class="demo-gallery" style="display:none"></div>
 
@@ -389,11 +388,8 @@
 
     }
 
-    $(function () {
-        var first_view = $(".main_list").first().find("a").attr("href");
-        $("iframe[name='change_win']").attr("src", first_view);
-    });
     function show_glr(date) {
+        console.log(date);
         var class_a = date.attr("src");
         $("#demo-test-gallery2 img[src='" + class_a + "']").click();
     }
