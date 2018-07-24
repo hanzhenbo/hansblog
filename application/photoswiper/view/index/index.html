@@ -16,33 +16,23 @@
     <script src="/static/photoswiper/js/index.js"></script>
 </head>
 <body style="color:black;">
-<div class="content_resize">
-    <!--顶部通栏-->
-    <div class="mainbar">
-        <div class="article">
-            <!--这里是内容-->
-            <div id="mycontent" style="color:black;font-size:16px">
-                <div id="demo-test-gallery">
-
-                    <div class="gallery-row">
-                        {foreach $list as $key=>$vo}
-                        {if !empty($vo.url)}
-                        <div class="gallery-item">
-                            <a href="javascript:void(0)">
-                                <img data="{$vo.url}" onclick="show_glr($(this))"
-                                     src="{$vo.url}" alt="Image 001"
-                                     style="border-radius:5%"/>
-                            </a>
-                        </div>
-                        {/if}
-                        {/foreach}
-                    </div>
-                </div>
-                <!--这里是内容-->
+    <!--这里是内容-->
+    <div id="demo-test-gallery">
+        <div class="gallery-row">
+            {foreach $list as $key=>$vo}
+            {if !empty($vo.url)}
+            <div class="gallery-item">
+                <a href="javascript:void(0)">
+                    <img data="{$vo.url}" onclick="show_glr($(this))"
+                         src="{$vo.url}" alt="Image 001"
+                         style="border-radius:5%"/>
+                </a>
             </div>
+            {/if}
+            {/foreach}
         </div>
     </div>
-</div>
+    <!--这里是内容-->
 
 <div id="demo-test-gallery2" class="demo-gallery" style="display:none"></div>
 

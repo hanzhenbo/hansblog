@@ -1,25 +1,15 @@
 {extend name='admin@public/content'}
 
 {block name="content"}
-<form autocomplete="off" onsubmit="return false;" action="{:request()->url()}" data-auto="true" method="post" class='form-horizontal layui-form padding-top-20'>
-    <div class="form-group">
-        <label class="col-sm-2 control-label label-required">商品图片</label>
-        <div class='col-sm-8'>
-            <table class="layui-table background-item margin-none" lay-size="sm" lay-skin="nob">
-                <thead>
-                <tr>
-                    <td>商品图片</td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td class="text-top">
-                        <input type="hidden" name="url" value="{$vo.url|default=''}">
-                        <script>$('[name="url"]').uploadMultipleImage();</script>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+<form autocomplete="off" onsubmit="return false;" action="{:request()->url()}" data-auto="true" method="post" class='form-horizontal layui-form'>
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>图片上传</legend>
+    </fieldset>
+    <div class="layui-form-item">
+        <label class="layui-form-label">图片上传</label>
+        <div class="layui-input-block center-block">
+            <input type="hidden" name="url" value="{$vo.url|default=''}">
+            <script>$('[name="url"]').uploadMultipleImage();</script>
         </div>
     </div>
     <div class="hr-line-dashed"></div>
