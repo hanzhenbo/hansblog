@@ -61,7 +61,7 @@
               <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
                   <div class="am-list-news-bd">
                       <ul class="am-list">
-                          {volist name="discuse" id="vo"}
+                          {volist name="list" id="vo"}
                           <li class="am-g am-list-item-dated">
                               {$vo.name}:<a href="" class="am-list-item-hd ">{$vo.content}</a>
                               <span class="am-list-date">{$vo.create_at|date="Y-m-d"}</span>
@@ -69,6 +69,7 @@
                           {/volist}
                       </ul>
                   </div>
+                  {if isset($page)}<p>{$page|raw}</p>{/if}
               </div>
             <input type="hidden" value="{$article.id}" name="id">
             <div class="am-form-group">

@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"/>
-    <title>哈喽world</title>
+    <title>照片墙</title>
     <link href="/static/photoswiper/css/index.css" rel="stylesheet" type="text/css"/>
     <link href="/static/plugs/photoswiper/css/photoswipe.css" rel="stylesheet">
     <link href="/static/photoswiper/css/default-skin.css" rel="stylesheet">
@@ -23,9 +23,7 @@
             {if !empty($vo.url)}
             <div class="gallery-item">
                 <a href="javascript:void(0)">
-                    <img data="{$vo.url}" onclick="show_glr($(this))"
-                         src="{$vo.url}" alt="Image 001"
-                         style="border-radius:5%"/>
+                    <img data="{$vo.url}" onclick="show_glr($(this))" src="{$vo.url}" style="border-radius:5%"/>
                 </a>
             </div>
             {/if}

@@ -65,8 +65,11 @@
                 </span>
               </div>
               <br>
-              <div class="am-input-group am-animation-slide-left log-animation-delay">
+              <div class="am-input-group am-animation-slide-left">
                   <input id="captcha" name="captcha" required="required" type="text" placeholder="请填写验证码"/>
+              </div>
+              <br>
+              <div class="am-input-group am-animation-slide-left ">
                   <img src="{:captcha_src()}" class="verify" onclick="javascript:this.src='{:captcha_src()}?rand='+Math.random()" >
               </div>
               <br>
@@ -76,7 +79,6 @@
               <p>使用第三方登录</p>
               <a href="#" class="am-btn am-btn-secondary am-btn-sm"><i class="am-icon-github am-icon-sm"></i> Github</a>
               <a href="#" class="am-btn am-btn-success am-btn-sm"><i class="am-icon-google-plus-square am-icon-sm"></i> Google+</a>
-            <a href="#" class="am-btn am-btn-primary am-btn-sm"><i class="am-icon-stack-overflow am-icon-sm"></i> stackOverflow</a>
             </div>
           </form>
   </div>

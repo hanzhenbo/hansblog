@@ -117,8 +117,6 @@ function local_image($url)
 }
 
 
-
-
 function get_random_string($prefix = '', $length = 32)
 {
     $ss = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -417,7 +415,6 @@ if (!function_exists('getSexLabel')) {
         return '女<span class="hidden-xs"> <i class="fa fa-venus" style="color: hotpink"></i></span>';
     }
 }
-
 
 
 /**
@@ -967,5 +964,21 @@ if (!function_exists('checkIp')) {
                 return 'IOS';
             }
         }
+    }
+
+    function format_date($timestamp, $format = 'Y-m-d')
+    {
+        if ($timestamp <= 0) {
+            return '';
+        }
+        return date($format, $timestamp);
+    }
+
+    function format_time($timestamp, $format = 'Y-m-d H:i:s')
+    {
+        if ($timestamp <= 0) {
+            return '';
+        }
+        return date($format, $timestamp);
     }
 }

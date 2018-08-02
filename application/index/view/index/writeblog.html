@@ -9,25 +9,31 @@
     <link rel="stylesheet" href="/static/assets/css/amazeui.min.css">
     <link rel="stylesheet" href="/static/assets/css/app.css">
     <style>
-        .form{
-
+        .am-accordion-content {
+            height: 75rem;
         }
     </style>
 </head>
 <body>
 
-<div class="am-u-md-8 am-u-sm-12">
+<div class="am-accordion-content"
+     style="background-image: url('/static/images/timg.jpg');background-repeat: no-repeat;background-size: 100% 100%;">
     <form class="am-form am-g" method="post" action="{:url('writeblog')}">
-        <h3 class="blog-comment">文章</h3>
-        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530852240673&di=c3bba08be488470282969762094cdcb1&imgtype=0&src=http%3A%2F%2Fpic12.nipic.com%2F20110113%2F3393020_174934680000_2.gif" class="image" alt="">
-        <article class="am-article blog-article-p form">
-            标题<input type="text" name="title" class="am-input-sm" data-validation-message="请输入标题" placeholder="" required/>
-            摘要<input type="text" name="abstracts" class="am-input-sm" data-validation-message="请输入标题" placeholder="" required/>
-            <div class="am-form-group">
-                <textarea class="" rows="5" placeholder="一字千金" name="content"></textarea>
-            </div>
-            <p><button type="submit" class="am-btn am-btn-default">发表文章</button></p>
-        </article>
+        <div style="margin: 25% 0 0 8%;width: 85%;">
+            <article class="am-article blog-article-p form">
+                <span style="color: #ffffff">标题</span><input type="text" name="title" class="am-input-sm"
+                                                             data-validation-message="请输入标题" placeholder="" required/>
+                <span style="color: #ffffff">摘要</span><input type="text" name="abstracts" class="am-input-sm"
+                                                             data-validation-message="请输入标题" placeholder="" required/>
+                <div class="am-form-group">
+                    <span style="color: #ffffff">内容</span>
+                    <textarea class="" rows="5" placeholder="一字千金" name="content"></textarea>
+                </div>
+            </article>
+            <p>
+                <button type="submit" class="am-btn am-btn-default am-center">发表文章</button>
+            </p>
+        </div>
     </form>
 </div>
 
@@ -36,11 +42,9 @@
 <!-- 配置文件 -->
 <script src="/static/plugs/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="/static/plugs/ckeditor/ckeditor.js"></script>
-<!-- 编辑器源码文件 -->
-<!--<script type="text/javascript" src="/static/js/ueditor.all.js"></script>-->
 <!-- 实例化编辑器 -->
 <script type="text/javascript">
-window.createEditor('[name="content"]', {height: 100,width:300});
+    window.createEditor('[name="content"]', {height: 100});
 </script>
 </body>
 </html>

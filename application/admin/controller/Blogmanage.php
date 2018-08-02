@@ -5,6 +5,7 @@
  * Date: 2018/6/26
  * Time: 16:31
  */
+
 namespace app\admin\controller;
 
 use controller\BasicAdmin;
@@ -31,7 +32,7 @@ class Blogmanage extends BasicAdmin
             list($start, $end) = explode(' - ', $get['date']);
             $db->whereBetween('create_at', ["{$start} 00:00:00", "{$end} 23:59:59"]);
         }
-        return parent::_list($db->where(['is_deleted' => '0'])->order('status desc,id desc'));
+        return parent::_list($db->where(['is_deleted' => '0'])->order('create_at desc'));
     }
 
     /**
@@ -61,31 +62,44 @@ class Blogmanage extends BasicAdmin
     }
 
     /**
+     * 文章启用
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
+    public function resume()
+    {
+        if (DataService::update($this->table)) {
+            $this->success("文章启用成功！", '');
+        }
+        $this->error("文章启用失败，请稍候再试！");
+    }
+
+    /**
      * 文章编辑
      * @throws \think\Exception
      * @throws \think\exception\PDOException
      */
     public function edit()
     {
-        if (!$this->request->isPost()){
+        if (!$this->request->isPost()) {
             $article_id = $this->request->get('id');
-            $article = Db::name($this->table)->where(['id'=>$article_id, 'is_deleted' => '0'])->find();
-            return $this->fetch('edit',[
+            $article = Db::name($this->table)->where(['id' => $article_id, 'is_deleted' => '0'])->find();
+            return $this->fetch('edit', [
                 'article' => $article
             ]);
         }
-            $data = $this->request->post('');
-            $article_id = $this->request->post('id');
-            $article = Db::name($this->table)->where(['id' => $article_id, 'is_deleted' => '0'])->find();
-            empty($article) && $this->error('商品编辑失败，请稍候再试！');
-            // 更新文章
-            $where = ['id' => $article_id, 'is_deleted' => '0'];
-            $editres = Db::name($this->table)->where($where)->update($data);
-            if ($editres){
-                $this->success('修改成功','');
-            }else{
-                $this->error('修改失败');
-            }
+        $data = $this->request->post('');
+        $article_id = $this->request->post('id');
+        $article = Db::name($this->table)->where(['id' => $article_id, 'is_deleted' => '0'])->find();
+        empty($article) && $this->error('商品编辑失败，请稍候再试！');
+        // 更新文章
+        $where = ['id' => $article_id, 'is_deleted' => '0'];
+        $editres = Db::name($this->table)->where($where)->update($data);
+        if ($editres) {
+            $this->success('修改成功', '');
+        } else {
+            $this->error('修改失败');
+        }
     }
 
     /**
@@ -96,7 +110,7 @@ class Blogmanage extends BasicAdmin
         $request = $this->request;
         if ($request->isGet()) {
             $id = $request->get()['article_id'];
-            return $this->fetch('', ['id'=>$id]);
+            return $this->fetch('', ['id' => $id]);
         }
     }
 
@@ -105,7 +119,7 @@ class Blogmanage extends BasicAdmin
         $request = $this->request;
         $articleid = $request->get()['article_id'];
         if ($articleid) {
-            $url = 'http://'.$_SERVER['HTTP_HOST'].'/index/index/article?id='. $articleid;
+            $url = 'http://' . $_SERVER['HTTP_HOST'] . '/index/index/article?id=' . $articleid;
             $data = [
                 'msg' => 1,
                 'url' => $url,
