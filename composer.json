@@ -25,7 +25,8 @@
     "qiniu/php-sdk": "^7.2",
     "topthink/think-helper": ">=1.0.4",
     "guzzlehttp/guzzle": "^6.3",
-    "endroid/qr-code": "^3.2"
+    "endroid/qr-code": "^3.2",
+    "naixiaoxin/think-wechat": "^1.2"
   },
   "autoload": {
     "psr-4": {
