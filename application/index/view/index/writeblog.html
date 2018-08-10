@@ -8,6 +8,8 @@
     <title>记录</title>
     <link rel="stylesheet" href="/static/assets/css/amazeui.min.css">
     <link rel="stylesheet" href="/static/assets/css/app.css">
+    <script src="/static/plugs/jquery/jquery.min.js"></script>
+    <script src="/static/admin.js"></script>
     <style>
         .am-accordion-content {
             height: 75rem;
@@ -28,6 +30,11 @@
                 <div class="am-form-group">
                     <span style="color: #ffffff">内容</span>
                     <textarea class="" rows="5" placeholder="一字千金" name="content"></textarea>
+                </div>
+
+                <div>
+                    <input type="hidden" name="demo_pic1" value="{$vo.demo_pic1|default=''}" >
+                    <script>$('[name=demo_pic1]').uploadOneImage()</script>
                 </div>
             </article>
             <p>
