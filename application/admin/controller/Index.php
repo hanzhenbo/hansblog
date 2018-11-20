@@ -143,7 +143,7 @@ class Index extends BasicAdmin
 
     public function phpinfo()
     {
-        echo $this->phpinfo();
+        echo phpinfo();
     }
 
 }
