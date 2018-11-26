@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"/>
+    <title>photo wall</title>
+</head>
+<body>
+<!--这里是内容-->
+<div id="demo-test-gallery">
+    <div class="gallery-row">
+        {foreach $list as $key=>$vo}
+        {if !empty($vo.url)}
+        <div class="gallery-item" data-width="100%">
+            <img data="{$vo.url}" onclick="show_glr($(this))" src="{$vo.url}" style="border-radius:5%"/>
+        </div>
+        {/if}
+        {/foreach}
+    </div>
+</div>
+
+</body>
+</html>

@@ -48,4 +48,10 @@ class Index extends BasicAdmin
             }
         }
     }
+
+    public function linshi()
+    {
+        $db = Db::name('hans_photos');
+        return $this->_list($db);
+    }
 }
