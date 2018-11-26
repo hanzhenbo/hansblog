@@ -51,7 +51,7 @@ class Index extends BasicAdmin
 
     public function linshi()
     {
-        $db = Db::name('hans_photos');
-        return $this->_list($db);
+        $list = Db::name('hans_photos')->select();
+        return $this->fetch('linshi',['list'=>$list]);
     }
 }
