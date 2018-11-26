@@ -13,7 +13,7 @@
     <div class="gallery-row">
         {foreach $list as $key=>$vo}
         {if !empty($vo.url)}
-        <div class="gallery-item" data-width="100%">
+        <div class="gallery-item" style="width:500px;">
             <img data="{$vo.url}" onclick="show_glr($(this))" src="{$vo.url}" style="border-radius:5%"/>
         </div>
         {/if}
