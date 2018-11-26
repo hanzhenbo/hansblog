@@ -100,8 +100,8 @@
 
 <script>
     $(function () {
-        var divw = '';
-        var divh = '';
+        var divw = $(".gallery-item").first().width();
+        var divh = divw * 1.25;
         $(".gallery-item").css("height", divh);
         $(".gallery-item").find("img").css("width", divw);
         $(".gallery-item").find("img").css("height", divh);
