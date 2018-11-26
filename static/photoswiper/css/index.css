@@ -13,6 +13,6 @@ body {
 
 .gallery-item {
     float: left;
-    width: 40%;
-    padding: 10% 5% 10% 5%;
+    width: 100%;
+    /*padding: 10% 5% 10% 5%;*/
 }
