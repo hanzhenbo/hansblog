@@ -54,4 +54,10 @@ class Index extends BasicAdmin
         $list = Db::name('hans_photos')->select();
         return $this->fetch('linshi',['list'=>$list]);
     }
+
+    public function official()
+    {
+        $list = Db::name('hans_photos')->select();
+        return $this->fetch('official',['list'=>$list]);
+    }
 }

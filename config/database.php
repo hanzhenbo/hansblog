@@ -15,13 +15,13 @@
 return [
     'type'            => 'mysql',
     // 服务器地址
-    'hostname'        => '132.232.56.198',
+    'hostname'        => 'localhost',
     // 数据库名
     'database'        => 'hansblog',
     // 用户名
-    'username'        => 'admin',
+    'username'        => 'root',
     // 密码
-    'password'        => 'admin@123',
+    'password'        => 'root',
     // 端口
     'hostport'        => '3306',
     // 连接dsn
