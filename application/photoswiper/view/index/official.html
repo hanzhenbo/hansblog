@@ -23,13 +23,26 @@
         window.onload=function(){
             auto_data_size();
         };
+
+        var sh = $(window).height(); //浏览器当前窗口可视区域高度
+
+        var sw = $(window).width(); //浏览器当前窗口可视区域宽度
         function auto_data_size(){
             var imgss= $("figure img");
             $("figure img").each(function() {
                 var imgs = new Image();
                 imgs.src=$(this).attr("src");
-                var w = imgs.width,
-                    h =imgs.height;
+                if (imgs.width<sw){
+                    var w = imgs.width;
+                }else{
+                    var w = sw;
+                }
+
+                if (imgs.height<sh){
+                    var h =imgs.height;
+                }else{
+                    var h =imgs.height;
+                }
                 $(this).parent("a").attr("data-size","").attr("data-size",w+"x"+h);
             })
         };
