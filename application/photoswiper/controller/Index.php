@@ -52,11 +52,10 @@ class Index extends BasicAdmin
 
     public function linshi()
     {
-        $list = Db::name('hans_photos')->select();
-        return $this->fetch('linshi',['list'=>$list]);
+        $this->officials();
     }
 
-    public function official()
+    public function officials()
     {
         if (Cache::has('photolist')){
             $list = Cache::get('photolist');
