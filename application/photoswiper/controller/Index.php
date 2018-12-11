@@ -8,6 +8,7 @@
 namespace app\photoswiper\controller;
 
 use controller\BasicAdmin;
+use think\facade\Cache;
 use think\Db;
 
 class Index extends BasicAdmin
@@ -57,7 +58,12 @@ class Index extends BasicAdmin
 
     public function official()
     {
-        $list = Db::name('hans_photos')->select();
+        if (Cache::has('photolist')){
+            $list = Cache::get('photolist');
+        }else{
+            $list = Db::name('hans_photos')->select();
+            Cache::set('photolist',$list);
+        }
         return $this->fetch('official',['list'=>$list]);
     }
 }
