@@ -7,9 +7,9 @@
  */
 namespace app\invite\controller;
 
-use controller\BasicAdmin;
+use think\Controller;
 
-class Lottery extends BasicAdmin
+class Lottery extends Controller
 {
 
     public function index()
