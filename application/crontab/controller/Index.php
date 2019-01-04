@@ -19,6 +19,6 @@ class Index
         $insert['content'] = '距离第一次见面已经过去'.floor((time()-1506164400)/86400).'天'.floor((time()-1506164400)%86400/3600).'小时'.floor((((time()-1506164400)%86400)/60)%60).'分钟'.floor((time()-1506164400)%86400%60).'秒';
         $insert['created_time'] = time();
         $insert['auth'] = 'hans';
-        Db::name('index')->insert($insert);
+        Db::name('getnews')->insert($insert);
     }
 }
