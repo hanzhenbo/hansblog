@@ -21,6 +21,14 @@ class Index extends BasicAdmin
         return $this->_list($db);
     }
 
+    public function _index_data_filter(&$data)
+    {
+        if (Cache::has('photo')){
+            $data = Cache::get('photo');
+        }else{
+            Cache::set('photo',$data);
+        }
+    }
     /**
      * 批量上传照片
      */

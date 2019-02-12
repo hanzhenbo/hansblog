@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"/>
-    <title>photo wall</title>
+    <title>韩震波 && 郭紫玮</title>
     <link href="/static/photoswiper/css/index.css" rel="stylesheet" type="text/css"/>
     <link href="/static/plugs/photoswiper/css/photoswipe.css" rel="stylesheet">
     <link href="/static/photoswiper/css/default-skin.css" rel="stylesheet">
@@ -99,6 +99,23 @@
 </div>
 
 <script>
+    //=========jq自动加载=======//
+    $(window).scroll(function () {loadmore($(this));});
+    var flag = true;                                                //标志，确定达到之后则停止,为了同时只进行一次加载操作
+    var row = 20;
+    function loadmore(obj) {
+        var scrollTop = $(obj).scrollTop();                         //目前所在的位置
+        var scrollHeight = $(document).height();                    //文章一共有多长
+        var windowHeight = $(obj).height();                         //一页一共有多长
+        if (scrollHeight - (scrollTop + windowHeight) <= 20) {      //20的意思是预留长度，总不能翻页到最底下才加载把~
+            if (flag) {
+                window.location.herf = window.location.host+'index?rows='+(row+10);//到底了在这里请求新的一页，这里可以放ajax获取新一页
+                console.log(22);
+                flag = false;                                       //只执行一次
+            }
+        }
+    }
+    //=========jq自动加载结束=======//
     $(function () {
         // 列表默认宽高
         var divw = $(".gallery-item").first().width();
