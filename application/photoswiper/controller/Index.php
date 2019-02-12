@@ -17,17 +17,13 @@ class Index extends BasicAdmin
 
     public function index()
     {
-        $db = Db::name('hans_photos');
-        return $this->_list($db);
-    }
-
-    public function _index_data_filter(&$data)
-    {
-        if (Cache::has('photo')){
-            $data = Cache::get('photo');
+        if (Cache::has('photolist')){
+            $list = Cache::get('photolist');
         }else{
-            Cache::set('photo',$data);
+            $list = Db::name('hans_photos')->select();
+            Cache::set('photolist',$list);
         }
+        return $this->fetch('',['list'=>$list]);
     }
     /**
      * 批量上传照片
