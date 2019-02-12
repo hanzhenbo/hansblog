@@ -101,16 +101,15 @@
 <script>
     //=========jq自动加载=======//
     $(window).scroll(function () {loadmore($(this));});
-    var flag = true;                                                //标志，确定达到之后则停止,为了同时只进行一次加载操作
-    var row = 20;
+//    var flag = true;
+    var row = 0;
     function loadmore(obj) {
         var scrollTop = $(obj).scrollTop();                         //目前所在的位置
         var scrollHeight = $(document).height();                    //文章一共有多长
         var windowHeight = $(obj).height();                         //一页一共有多长
-        if (scrollHeight - (scrollTop + windowHeight) <= 20) {      //20的意思是预留长度，总不能翻页到最底下才加载把~
-            if (flag) {
-                window.location.herf = window.location.host+'index?rows='+(row+10);//到底了在这里请求新的一页，这里可以放ajax获取新一页
-            }
+        if (scrollHeight - (scrollTop + windowHeight) <= 10) {      //10的意思是预留长度，总不能翻页到最底下才加载把~
+            window.location.herf = window.location.host+'/photoswiper/index?rows='+(row+20);//到底了在这里请求新的一页，这里可以放ajax获取新一页
+            row =+ 20;
         }
     }
     //=========jq自动加载结束=======//
