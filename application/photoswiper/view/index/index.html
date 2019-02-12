@@ -100,8 +100,9 @@
 
 <script>
     $(function () {
+        // 列表默认宽高
         var divw = $(".gallery-item").first().width();
-        var divh = divw * 1.25;
+        var divh = $(".gallery-item").first().height() * 0.25;
         $(".gallery-item").css("height", divh);
         $(".gallery-item").find("img").css("width", divw);
         $(".gallery-item").find("img").css("height", divh);
@@ -393,12 +394,13 @@
 // Get accurate measurements from that.
             theImage.onload = function () {
                 i++;
+                // 打开图片的宽高 data-med-size
                 var imageWidth = theImage.width * 4;
                 var imageHeight = theImage.height * 4;
 
                 var str_img = $(this).prop("outerHTML");
 
-                var stra = "<a class='imgid_" + i + "'   href='" + srcb + "' data-size='" + imageWidth + "x" + imageHeight + "' data-med='" + srcb + "' data-med-size='1024x1024'>" + str_img + " </a>";
+                var stra = "<a class='imgid_" + i + "'   href='" + srcb + "' data-size='" + imageWidth + "x" + imageHeight + "' data-med='" + srcb + "' data-med-size='" + imageWidth + "x" + imageHeight + "'>" + str_img + " </a>";
 //$(this).wrapAll(str_touch);
 
                 $("#demo-test-gallery2").append(stra);
