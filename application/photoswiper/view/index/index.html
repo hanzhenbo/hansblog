@@ -110,8 +110,6 @@
         if (scrollHeight - (scrollTop + windowHeight) <= 20) {      //20的意思是预留长度，总不能翻页到最底下才加载把~
             if (flag) {
                 window.location.herf = window.location.host+'index?rows='+(row+10);//到底了在这里请求新的一页，这里可以放ajax获取新一页
-                console.log(22);
-                flag = false;                                       //只执行一次
             }
         }
     }
