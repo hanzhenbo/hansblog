@@ -11,8 +11,9 @@
             <div class="am-article-hd" style="background-color: #fbfdf3">
                 <h1 class="am-article-title blog-text-center">{$article.title}</h1>
                 <p class="am-article-meta blog-text-center">
-                    <span><a href="#">@hansblog &nbsp;</a></span>-
-                    <span><a href="#">{$article.create_at|format_date}</a></span>
+                    作者：<span>hans &nbsp;</span>
+                    点击数：<span>{$article.click}</span>&nbsp;
+                    创建时间：<span>{$article.create_at|format_date}</span>
                 </p>
             </div>
             <div class="am-article-bd">
