@@ -116,7 +116,7 @@ class Blogmanage extends BasicAdmin
         }
         $data = $this->request->post('');
         // 更新文章
-        $data['created_at'] = time();
+        $data['create_at'] = time();
         $data['status'] = 1;
         $res = Db::name($this->table)->insert($data);
         list($base, $spm, $url) = [url('@admin'), $this->request->get('spm'), url('admin/blogmanage/index')];
