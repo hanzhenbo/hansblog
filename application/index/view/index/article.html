@@ -8,10 +8,9 @@
 <div class="am-g am-g-fixed blog-fixed blog-content">
     <div class="am-u-md-8 am-u-sm-12">
         <article class="am-article blog-article-p">
-            <div class="am-article-hd">
+            <div class="am-article-hd" style="background-color: #fbfdf3">
                 <h1 class="am-article-title blog-text-center">{$article.title}</h1>
                 <p class="am-article-meta blog-text-center">
-                    <span><a href="#" class="blog-color">article &nbsp;</a></span>-
                     <span><a href="#">@hansblog &nbsp;</a></span>-
                     <span><a href="#">{$article.create_at|format_date}</a></span>
                 </p>
@@ -21,8 +20,6 @@
                 <blockquote>
                     <p>{$article.abstracts}</p>
                 </blockquote>
-                <hr>
-                <h1>内容：</h1>
                 <p>{:htmlspecialchars_decode($article.content)}
                 </p>
             </div>
@@ -34,26 +31,25 @@
                 <img src="/static/assets/i/f15.jpg" alt="" class="blog-author-img am-circle">
             </div>
             <div class="am-u-sm-9 am-u-md-9 am-u-lg-10">
-                <h3><span>作者 &nbsp;: &nbsp;</span><span class="blog-color">{$article.user_name}</span></h3>
+                <h3><span>作者 &nbsp;: &nbsp;</span>{$article.user_name|default='hansblog'}</h3>
                 <p>{$article.desc|default="该作者还没有任何描述自己的哟。"}</p>
             </div>
         </div>
-        <hr>
         <ul class="am-pagination blog-article-margin">
             <li class="am-pagination-prev"><a href="#" class="">&laquo; 一切的回顾</a></li>
             <li class="am-pagination-next"><a href="">不远的未来 &raquo;</a></li>
         </ul>
         <hr>
         <form class="am-form am-g" method="post" action="{:url('discuse')}">
-            <h3 class="blog-comment">评论</h3>
-            <article class="am-article blog-article-p">
+            <span class="blog-comment">评论</span>
+            <article class="am-article">
                 <div data-am-widget="list_news" class="am-list-news am-list-news-default">
                     <div class="am-list-news-bd">
                         <ul class="am-list">
                             {volist name="list" id="vo"}
                             <li class="am-g am-list-item-dated">
-                                {$vo.name}:<a href="" class="am-list-item-hd ">{$vo.content}</a>
-                                <span class="am-list-date">{$vo.create_at|date="Y-m-d"}</span>
+                                {$vo.name}:{$vo.content}
+                                <span style="text-align: right">{$vo.create_at|date="Y-m-d"}</span>
                             </li>
                             {/volist}
                         </ul>
@@ -62,7 +58,7 @@
                 </div>
                 <input type="hidden" value="{$article.id}" name="id">
                 <div class="am-form-group">
-                    <textarea class="" rows="5" placeholder="一字千金" name="content"></textarea>
+                    <textarea rows="5" placeholder="一字千金" name="content"></textarea>
                 </div>
                 <p>
                     <button type="submit" class="am-btn am-btn-default">发表评论</button>
@@ -70,7 +66,32 @@
             </article>
         </form>
 
-        <hr>
+    </div>
+    <div class="am-u-md-4 am-u-sm-12 blog-sidebar">
+        <div class="blog-sidebar-widget blog-bor">
+            <h2 class="blog-text-center blog-title"><span>About ME</span></h2>
+            <img src="http://lorempixel.com/400/200/" alt="about me" class="blog-entry-img">
+            <p>欢迎来到有料空间，在这里你可以看到一些技术知识。同时也希望大家提出问题，我们一起讨论共同进步</p>
+        </div>
+    </div>
+
+    <div class="am-u-md-4 am-u-sm-12 blog-sidebar">
+        <div data-am-widget="slider" class="am-slider am-slider-b1" data-am-slider='{&quot;controlNav&quot;:false}'>
+            <ul class="am-slides">
+                <li>
+                    <img src="http://lorempixel.com/400/200/transport">
+                </li>
+                <li>
+                    <img src="http://lorempixel.com/400/200/animals">
+                </li>
+                <li>
+                    <img src="http://lorempixel.com/400/200/city">
+                </li>
+                <li>
+                    <img src="http://lorempixel.com/400/200/people">
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 <!-- content end -->

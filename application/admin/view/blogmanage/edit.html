@@ -3,37 +3,37 @@
     <div class="layui-form-item">
         <label class="layui-form-label">文章题目</label>
         <div class="layui-input-block">
-            <input autofocus name="title" value='{$article.title|default=""}' required title="请输入商品分类" placeholder="请输入商品分类" class="layui-input">
+            <input autofocus name="title" value='{$article.title|default=""}' required title="请输入文章题目" placeholder="请输入文章题目" class="layui-input">
         </div>
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label">摘要</label>
         <div class="layui-input-block">
-            <input autofocus name="abstracts" value='{$article.abstracts|default=""}' required title="请输入商品分类" placeholder="请输入商品分类" class="layui-input">
+            <input autofocus name="abstracts" value='{$article.abstracts|default=""}' required title="请输入文章摘要" placeholder="请输入文章摘要" class="layui-input">
         </div>
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label">文章内容</label>
         <div class="layui-input-block">
-            <textarea placeholder="请输入分类描述" title="请输入分类描述" class="layui-textarea" name="content">{$article.content|default=""}</textarea>
+            <textarea placeholder="请输入分类描述" title="请输入文章内容" class="layui-textarea" name="content">{$article.content|default=""}</textarea>
         </div>
     </div>
 
-    <div class="layui-form-item">
-        <label class="layui-form-label">文章配图</label>
+    <!--<div class="layui-form-item">-->
+        <!--<label class="layui-form-label">文章配图</label>-->
         <!--<div class="layui-input-block">-->
-            <!--<img class="notselect" data-tips-image src="{$article.img}" style="width:80px;">-->
+            <!--<img class="notselect" data-tips-image src="{$article.img|default=''}" style="width:80px;">-->
         <!--</div>-->
         <!--<div class="layui-input-block">-->
             <!--<input type="hidden" name="img" value="{$article.img|default=''}">-->
             <!--<script>$('[name=img]').uploadOneImage()</script>-->
         <!--</div>-->
-        <img data-tips-image style="height:auto;max-height:32px;min-width:32px" src='{$article.img|default=""}'/>
-        <input type="hidden" name="img" onchange="$(this).prev('img').attr('src', this.value)" value='{$article.img|default=""}' class="layui-input">
-        <a class="btn btn-link" data-file="one" data-uptype="local" data-type="ico,png" data-field="img">修改图片</a>
-    </div>
+        <!--<img data-tips-image style="height:auto;max-height:32px;min-width:32px" src='{$article.img|default=""}'/>-->
+        <!--<input type="hidden" name="img" onchange="$(this).prev('img').attr('src', this.value)" value='{$article.img|default=""}' class="layui-input">-->
+        <!--<a class="btn btn-link" data-file="one" data-uptype="local" data-type="ico,png" data-field="img">修改图片</a>-->
+    <!--</div>-->
 
     <div class="hr-line-dashed"></div>
 
@@ -43,3 +43,9 @@
         <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button>
     </div>
 </form>
+<script>
+    require(['jquery', 'ckeditor'], function () {
+        window.form.render();
+        window.createEditor('[name="content"]', {height: 500});
+    });
+</script>

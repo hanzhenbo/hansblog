@@ -32,6 +32,7 @@ class Blogmanage extends BasicAdmin
             list($start, $end) = explode(' - ', $get['date']);
             $db->whereBetween('create_at', ["{$start} 00:00:00", "{$end} 23:59:59"]);
         }
+        $this->title = '文章管理';
         return parent::_list($db->where(['is_deleted' => '0'])->order('create_at desc'));
     }
 
@@ -91,14 +92,38 @@ class Blogmanage extends BasicAdmin
         $data = $this->request->post('');
         $article_id = $this->request->post('id');
         $article = Db::name($this->table)->where(['id' => $article_id, 'is_deleted' => '0'])->find();
-        empty($article) && $this->error('商品编辑失败，请稍候再试！');
+        empty($article) && $this->error('文章编辑失败，请稍候再试！');
         // 更新文章
         $where = ['id' => $article_id, 'is_deleted' => '0'];
         $editres = Db::name($this->table)->where($where)->update($data);
+        list($base, $spm, $url) = [url('@admin'), $this->request->get('spm'), url('admin/blogmanage/index')];
         if ($editres) {
-            $this->success('修改成功', '');
+            $this->success('修改成功', "{$base}#{$url}?spm={$spm}");
         } else {
             $this->error('修改失败');
+        }
+    }
+
+    /**
+     * 文章添加
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
+    public function add()
+    {
+        if (!$this->request->isPost()) {
+            return $this->fetch('edit');
+        }
+        $data = $this->request->post('');
+        // 更新文章
+        $data['created_at'] = time();
+        $data['status'] = 1;
+        $res = Db::name($this->table)->insert($data);
+        list($base, $spm, $url) = [url('@admin'), $this->request->get('spm'), url('admin/blogmanage/index')];
+        if ($res) {
+            $this->success('添加成功', "{$base}#{$url}?spm={$spm}");
+        } else {
+            $this->error('添加失败');
         }
     }
 

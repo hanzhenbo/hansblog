@@ -71,7 +71,7 @@
                 <span>writed by &nbsp;</span>
                 <span> <a href="/" class="blog-color">{$item.user_name} &nbsp;</a></span>
                 <span>{$item.create_at|format_date}</span>
-                <h1><a href={:url('article')}?id={$item.id}>{$item.title}</a></h1>
+                <h1><a href={:url('article')}?id={$item.id} target="_blank">{$item.title}</a></h1>
                 <p>{$item.abstracts}</p>
                 <p><a href="" class="blog-continue">continue reading</a></p>
             </div>
