@@ -23,7 +23,11 @@ class Index extends BasicHome
 //        }else{
         $rest_time = 10000;
 //        }
-        $where = ['status' => 1, 'is_deleted' => 0];
+        $where = '';
+        if ($this->request->isGet() && !empty($this->request->get('cate'))){
+            $where .= 'cate='.$this->request->get('cate').' and ';
+        }
+        $where .= 'status=1 and is_deleted=0';
         $this->assign('rest_time', $rest_time);
         $db = Db::name('hans_article')->where($where)->order('click desc');
         return $this->_list($db, true);

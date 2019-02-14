@@ -62,6 +62,9 @@
 <div class="am-g am-g-fixed blog-fixed">
     <div class="am-u-md-8 am-u-sm-12">
 
+        {if empty($list)}
+            <p style="text-align: center">作者没这方面的才华，敢情大家送几篇文章，感激不尽！！！</p>
+        {else/}
         {volist name="list" id="item"}
         <article class="am-g blog-entry-article">
             <div class="am-u-lg-4 am-u-md-12 am-u-sm-12 blog-entry-img">
@@ -80,6 +83,7 @@
             </div>
         </article>
         {/volist}
+        {/if}
         {if isset($page)}<p>{$page|raw}</p>{/if}
     </div>
 
