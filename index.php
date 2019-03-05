@@ -17,6 +17,9 @@ namespace think;
 // 加载基础文件
 require __DIR__ . '/thinkphp/base.php';
 
+/* 定义项目目录 */
+define('PROJECT_PATH', __DIR__);
+
 // think文件检查，防止TP目录计算异常
 file_exists('think') || touch('think');
 

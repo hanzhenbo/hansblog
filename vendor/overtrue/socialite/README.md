@@ -42,6 +42,7 @@ For Laravel 5: [overtrue/laravel-socialite](https://github.com/overtrue/laravel-
 
 ```php
 <?php
+
 use Overtrue\Socialite\SocialiteManager;
 
 $config = [
@@ -64,11 +65,23 @@ echo $response;// or $response->send();
 ```php
 <?php
 
-// ...
+use Overtrue\Socialite\SocialiteManager;
+
+$config = [
+    'github' => [
+        'client_id' => 'your-app-id',
+        'client_secret' => 'your-app-secret',
+        'redirect' => 'http://localhost/socialite/callback.php',
+    ],
+];
+
+$socialite = new SocialiteManager($config);
+
 $user = $socialite->driver('github')->user();
 
 $user->getId();        // 1472352
 $user->getNickname();  // "overtrue"
+$user->getUsername();  // "overtrue"
 $user->getName();      // "安正超"
 $user->getEmail();     // "anzhengchao@gmail.com"
 $user->getProviderName(); // GitHub
@@ -79,7 +92,7 @@ $user->getProviderName(); // GitHub
 
 Now we support the following sites:
 
-`facebook`, `github`, `google`, `linkedin`, `outlook`, `weibo`, `qq`, `wechat`, `wechat_open`, and `douban`.
+`facebook`, `github`, `google`, `linkedin`, `outlook`, `weibo`, `qq`, `wechat`, and `douban`.
 
 Each drive uses the same configuration keys: `client_id`, `client_secret`, `redirect`.
 

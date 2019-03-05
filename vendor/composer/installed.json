@@ -44,35 +44,38 @@
     },
     {
         "name": "bacon/bacon-qr-code",
-        "version": "1.0.3",
-        "version_normalized": "1.0.3.0",
+        "version": "2.0.0",
+        "version_normalized": "2.0.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Bacon/BaconQrCode.git",
-            "reference": "5a91b62b9d37cee635bbf8d553f4546057250bee"
+            "reference": "eaac909da3ccc32b748a65b127acd8918f58d9b0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/5a91b62b9d37cee635bbf8d553f4546057250bee",
-            "reference": "5a91b62b9d37cee635bbf8d553f4546057250bee",
+            "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/eaac909da3ccc32b748a65b127acd8918f58d9b0",
+            "reference": "eaac909da3ccc32b748a65b127acd8918f58d9b0",
             "shasum": ""
         },
         "require": {
+            "dasprid/enum": "^1.0",
             "ext-iconv": "*",
-            "php": "^5.4|^7.0"
+            "php": "^7.1"
         },
         "require-dev": {
-            "phpunit/phpunit": "^4.8"
+            "phly/keep-a-changelog": "^1.4",
+            "phpunit/phpunit": "^6.4",
+            "squizlabs/php_codesniffer": "^3.1"
         },
         "suggest": {
-            "ext-gd": "to generate QR code images"
+            "ext-imagick": "to generate QR code images"
         },
-        "time": "2017-10-17T09:59:25+00:00",
+        "time": "2018-04-25T17:53:56+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
-            "psr-0": {
-                "BaconQrCode": "src/"
+            "psr-4": {
+                "BaconQrCode\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -91,18 +94,62 @@
         "homepage": "https://github.com/Bacon/BaconQrCode"
     },
     {
-        "name": "easywechat-composer/easywechat-composer",
+        "name": "dasprid/enum",
         "version": "1.0.0",
         "version_normalized": "1.0.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/mingyoung/easywechat-composer.git",
-            "reference": "9f28ab61ae4cf46315a261bdd1853f24d6b6e560"
+            "url": "https://github.com/DASPRiD/Enum.git",
+            "reference": "631ef6e638e9494b0310837fa531bedd908fc22b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/mingyoung/easywechat-composer/zipball/9f28ab61ae4cf46315a261bdd1853f24d6b6e560",
-            "reference": "9f28ab61ae4cf46315a261bdd1853f24d6b6e560",
+            "url": "https://api.github.com/repos/DASPRiD/Enum/zipball/631ef6e638e9494b0310837fa531bedd908fc22b",
+            "reference": "631ef6e638e9494b0310837fa531bedd908fc22b",
+            "shasum": ""
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^6.4",
+            "squizlabs/php_codesniffer": "^3.1"
+        },
+        "time": "2017-10-25T22:45:27+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "DASPRiD\\Enum\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Ben Scholzen 'DASPRiD'",
+                "email": "mail@dasprids.de",
+                "homepage": "https://dasprids.de/"
+            }
+        ],
+        "description": "PHP 7.1 enum implementation",
+        "keywords": [
+            "enum",
+            "map"
+        ]
+    },
+    {
+        "name": "easywechat-composer/easywechat-composer",
+        "version": "1.1.6",
+        "version_normalized": "1.1.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mingyoung/easywechat-composer.git",
+            "reference": "970144fd245e62869edd60db6cc477053219d891"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mingyoung/easywechat-composer/zipball/970144fd245e62869edd60db6cc477053219d891",
+            "reference": "970144fd245e62869edd60db6cc477053219d891",
             "shasum": ""
         },
         "require": {
@@ -111,9 +158,9 @@
         },
         "require-dev": {
             "composer/composer": "^1.0",
-            "phpunit/phpunit": "^7.0"
+            "phpunit/phpunit": "^6.5 || ^7.0"
         },
-        "time": "2018-02-12T07:39:08+00:00",
+        "time": "2019-02-22T07:59:50+00:00",
         "type": "composer-plugin",
         "extra": {
             "class": "EasyWeChatComposer\\Plugin"
@@ -130,7 +177,7 @@
         ],
         "authors": [
             {
-                "name": "mingyoung",
+                "name": "张铭阳",
                 "email": "mingyoungcheung@gmail.com"
             }
         ],
@@ -138,17 +185,17 @@
     },
     {
         "name": "endroid/installer",
-        "version": "1.0.3",
-        "version_normalized": "1.0.3.0",
+        "version": "1.0.8",
+        "version_normalized": "1.0.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/endroid/installer.git",
-            "reference": "dde0a3d63ae92d4a67535e92da2b80d2b45cb06a"
+            "reference": "b41b44ae2e410609be3b7f080b626dfc9ff4822a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/endroid/installer/zipball/dde0a3d63ae92d4a67535e92da2b80d2b45cb06a",
-            "reference": "dde0a3d63ae92d4a67535e92da2b80d2b45cb06a",
+            "url": "https://api.github.com/repos/endroid/installer/zipball/b41b44ae2e410609be3b7f080b626dfc9ff4822a",
+            "reference": "b41b44ae2e410609be3b7f080b626dfc9ff4822a",
             "shasum": ""
         },
         "require": {
@@ -158,7 +205,7 @@
         "require-dev": {
             "phpunit/phpunit": "^5.7|^6.0"
         },
-        "time": "2018-04-10T20:59:23+00:00",
+        "time": "2018-11-30T13:00:41+00:00",
         "type": "composer-plugin",
         "extra": {
             "branch-alias": {
@@ -185,21 +232,21 @@
     },
     {
         "name": "endroid/qr-code",
-        "version": "3.2.12",
-        "version_normalized": "3.2.12.0",
+        "version": "3.5.4",
+        "version_normalized": "3.5.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/endroid/qr-code.git",
-            "reference": "15411c93fa91c0d0c25d98b08a3d5cc9de720fc7"
+            "reference": "108da927d1f57ab9dcb922250e844115d436bfb1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/endroid/qr-code/zipball/15411c93fa91c0d0c25d98b08a3d5cc9de720fc7",
-            "reference": "15411c93fa91c0d0c25d98b08a3d5cc9de720fc7",
+            "url": "https://api.github.com/repos/endroid/qr-code/zipball/108da927d1f57ab9dcb922250e844115d436bfb1",
+            "reference": "108da927d1f57ab9dcb922250e844115d436bfb1",
             "shasum": ""
         },
         "require": {
-            "bacon/bacon-qr-code": "^1.0.3",
+            "bacon/bacon-qr-code": "^2.0",
             "endroid/installer": "^1.0.3",
             "ext-gd": "*",
             "khanamiryan/qrcode-detector-decoder": "^1.0.2",
@@ -211,7 +258,7 @@
         "require-dev": {
             "phpunit/phpunit": "^5.7|^6.0"
         },
-        "time": "2018-05-07T16:04:16+00:00",
+        "time": "2019-02-25T14:34:43+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -367,34 +414,35 @@
     },
     {
         "name": "guzzlehttp/psr7",
-        "version": "1.4.2",
-        "version_normalized": "1.4.2.0",
+        "version": "1.5.2",
+        "version_normalized": "1.5.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/psr7.git",
-            "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
+            "reference": "9f83dded91781a01c63574e387eaa769be769115"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
-            "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+            "url": "https://api.github.com/repos/guzzle/psr7/zipball/9f83dded91781a01c63574e387eaa769be769115",
+            "reference": "9f83dded91781a01c63574e387eaa769be769115",
             "shasum": ""
         },
         "require": {
             "php": ">=5.4.0",
-            "psr/http-message": "~1.0"
+            "psr/http-message": "~1.0",
+            "ralouphie/getallheaders": "^2.0.5"
         },
         "provide": {
             "psr/http-message-implementation": "1.0"
         },
         "require-dev": {
-            "phpunit/phpunit": "~4.0"
+            "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
         },
-        "time": "2017-03-20T17:10:46+00:00",
+        "time": "2018-12-04T20:46:45+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.4-dev"
+                "dev-master": "1.5-dev"
             }
         },
         "installation-source": "dist",
@@ -425,6 +473,7 @@
         "keywords": [
             "http",
             "message",
+            "psr-7",
             "request",
             "response",
             "stream",
@@ -485,18 +534,187 @@
         ]
     },
     {
-        "name": "monolog/monolog",
-        "version": "1.23.0",
-        "version_normalized": "1.23.0.0",
+        "name": "markbaker/complex",
+        "version": "1.4.7",
+        "version_normalized": "1.4.7.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4"
+            "url": "https://github.com/MarkBaker/PHPComplex.git",
+            "reference": "1ea674a8308baf547cbcbd30c5fcd6d301b7c000"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
-            "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
+            "url": "https://api.github.com/repos/MarkBaker/PHPComplex/zipball/1ea674a8308baf547cbcbd30c5fcd6d301b7c000",
+            "reference": "1ea674a8308baf547cbcbd30c5fcd6d301b7c000",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.6.0|^7.0.0"
+        },
+        "require-dev": {
+            "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3",
+            "phpcompatibility/php-compatibility": "^8.0",
+            "phpdocumentor/phpdocumentor": "2.*",
+            "phploc/phploc": "2.*",
+            "phpmd/phpmd": "2.*",
+            "phpunit/phpunit": "^4.8.35|^5.4.0",
+            "sebastian/phpcpd": "2.*",
+            "squizlabs/php_codesniffer": "^3.3.0"
+        },
+        "time": "2018-10-13T23:28:42+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Complex\\": "classes/src/"
+            },
+            "files": [
+                "classes/src/functions/abs.php",
+                "classes/src/functions/acos.php",
+                "classes/src/functions/acosh.php",
+                "classes/src/functions/acot.php",
+                "classes/src/functions/acoth.php",
+                "classes/src/functions/acsc.php",
+                "classes/src/functions/acsch.php",
+                "classes/src/functions/argument.php",
+                "classes/src/functions/asec.php",
+                "classes/src/functions/asech.php",
+                "classes/src/functions/asin.php",
+                "classes/src/functions/asinh.php",
+                "classes/src/functions/atan.php",
+                "classes/src/functions/atanh.php",
+                "classes/src/functions/conjugate.php",
+                "classes/src/functions/cos.php",
+                "classes/src/functions/cosh.php",
+                "classes/src/functions/cot.php",
+                "classes/src/functions/coth.php",
+                "classes/src/functions/csc.php",
+                "classes/src/functions/csch.php",
+                "classes/src/functions/exp.php",
+                "classes/src/functions/inverse.php",
+                "classes/src/functions/ln.php",
+                "classes/src/functions/log2.php",
+                "classes/src/functions/log10.php",
+                "classes/src/functions/negative.php",
+                "classes/src/functions/pow.php",
+                "classes/src/functions/rho.php",
+                "classes/src/functions/sec.php",
+                "classes/src/functions/sech.php",
+                "classes/src/functions/sin.php",
+                "classes/src/functions/sinh.php",
+                "classes/src/functions/sqrt.php",
+                "classes/src/functions/tan.php",
+                "classes/src/functions/tanh.php",
+                "classes/src/functions/theta.php",
+                "classes/src/operations/add.php",
+                "classes/src/operations/subtract.php",
+                "classes/src/operations/multiply.php",
+                "classes/src/operations/divideby.php",
+                "classes/src/operations/divideinto.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mark Baker",
+                "email": "mark@lange.demon.co.uk"
+            }
+        ],
+        "description": "PHP Class for working with complex numbers",
+        "homepage": "https://github.com/MarkBaker/PHPComplex",
+        "keywords": [
+            "complex",
+            "mathematics"
+        ]
+    },
+    {
+        "name": "markbaker/matrix",
+        "version": "1.1.4",
+        "version_normalized": "1.1.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/MarkBaker/PHPMatrix.git",
+            "reference": "6ea97472b5baf12119b4f31f802835b820dd6d64"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/MarkBaker/PHPMatrix/zipball/6ea97472b5baf12119b4f31f802835b820dd6d64",
+            "reference": "6ea97472b5baf12119b4f31f802835b820dd6d64",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.6.0|^7.0.0"
+        },
+        "require-dev": {
+            "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3",
+            "phpcompatibility/php-compatibility": "^8.0",
+            "phpdocumentor/phpdocumentor": "2.*",
+            "phploc/phploc": "2.*",
+            "phpmd/phpmd": "2.*",
+            "phpunit/phpunit": "^4.8.35|^5.4.0",
+            "sebastian/phpcpd": "2.*",
+            "squizlabs/php_codesniffer": "^3.3.0"
+        },
+        "time": "2018-11-04T22:12:12+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Matrix\\": "classes/src/"
+            },
+            "files": [
+                "classes/src/functions/adjoint.php",
+                "classes/src/functions/antidiagonal.php",
+                "classes/src/functions/cofactors.php",
+                "classes/src/functions/determinant.php",
+                "classes/src/functions/diagonal.php",
+                "classes/src/functions/identity.php",
+                "classes/src/functions/inverse.php",
+                "classes/src/functions/minors.php",
+                "classes/src/functions/trace.php",
+                "classes/src/functions/transpose.php",
+                "classes/src/operations/add.php",
+                "classes/src/operations/directsum.php",
+                "classes/src/operations/subtract.php",
+                "classes/src/operations/multiply.php",
+                "classes/src/operations/divideby.php",
+                "classes/src/operations/divideinto.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mark Baker",
+                "email": "mark@lange.demon.co.uk"
+            }
+        ],
+        "description": "PHP Class for working with matrices",
+        "homepage": "https://github.com/MarkBaker/PHPMatrix",
+        "keywords": [
+            "mathematics",
+            "matrix",
+            "vector"
+        ]
+    },
+    {
+        "name": "monolog/monolog",
+        "version": "1.24.0",
+        "version_normalized": "1.24.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Seldaek/monolog.git",
+            "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
+            "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
             "shasum": ""
         },
         "require": {
@@ -532,7 +750,7 @@
             "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
             "sentry/sentry": "Allow sending log messages to a Sentry server"
         },
-        "time": "2017-06-19T01:22:40+00:00",
+        "time": "2018-11-05T09:00:11+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -566,27 +784,28 @@
     },
     {
         "name": "myclabs/php-enum",
-        "version": "1.6.1",
-        "version_normalized": "1.6.1.0",
+        "version": "1.6.6",
+        "version_normalized": "1.6.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/myclabs/php-enum.git",
-            "reference": "8c5649e4ed99acd53a40eada270154dcac089f7e"
+            "reference": "32c4202886c51fbe5cc3a7c34ec5c9a4a790345e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/myclabs/php-enum/zipball/8c5649e4ed99acd53a40eada270154dcac089f7e",
-            "reference": "8c5649e4ed99acd53a40eada270154dcac089f7e",
+            "url": "https://api.github.com/repos/myclabs/php-enum/zipball/32c4202886c51fbe5cc3a7c34ec5c9a4a790345e",
+            "reference": "32c4202886c51fbe5cc3a7c34ec5c9a4a790345e",
             "shasum": ""
         },
         "require": {
+            "ext-json": "*",
             "php": ">=5.4"
         },
         "require-dev": {
             "phpunit/phpunit": "^4.8.35|^5.7|^6.0",
             "squizlabs/php_codesniffer": "1.*"
         },
-        "time": "2018-05-09T08:09:15+00:00",
+        "time": "2019-02-04T21:18:49+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -612,25 +831,30 @@
     },
     {
         "name": "naixiaoxin/think-wechat",
-        "version": "1.2.1",
-        "version_normalized": "1.2.1.0",
+        "version": "1.5.0",
+        "version_normalized": "1.5.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/qiqizjl/think-wechat.git",
-            "reference": "d1b1faf04dcbd74b0e0a38165e0c082c021dcd98"
+            "reference": "ef37f42de632fe0c2e5ef0a8e23960241d41139b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/qiqizjl/think-wechat/zipball/d1b1faf04dcbd74b0e0a38165e0c082c021dcd98",
-            "reference": "d1b1faf04dcbd74b0e0a38165e0c082c021dcd98",
+            "url": "https://api.github.com/repos/qiqizjl/think-wechat/zipball/ef37f42de632fe0c2e5ef0a8e23960241d41139b",
+            "reference": "ef37f42de632fe0c2e5ef0a8e23960241d41139b",
             "shasum": ""
         },
         "require": {
             "overtrue/wechat": "~4.0",
             "topthink/framework": "~5.1"
         },
-        "time": "2018-08-01T07:23:34+00:00",
-        "type": "library",
+        "time": "2019-02-12T16:40:49+00:00",
+        "type": "think-extend",
+        "extra": {
+            "think-config": {
+                "wechat": "src/config.php"
+            }
+        },
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
@@ -662,17 +886,17 @@
     },
     {
         "name": "overtrue/socialite",
-        "version": "2.0.3",
-        "version_normalized": "2.0.3.0",
+        "version": "2.0.6",
+        "version_normalized": "2.0.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/overtrue/socialite.git",
-            "reference": "20bc0ac598aa41365c209bbe4cb5c0cf314d46b3"
+            "reference": "1b3bc250204df1e9edab44bbcbf856cc526fccb3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/overtrue/socialite/zipball/20bc0ac598aa41365c209bbe4cb5c0cf314d46b3",
-            "reference": "20bc0ac598aa41365c209bbe4cb5c0cf314d46b3",
+            "url": "https://api.github.com/repos/overtrue/socialite/zipball/1b3bc250204df1e9edab44bbcbf856cc526fccb3",
+            "reference": "1b3bc250204df1e9edab44bbcbf856cc526fccb3",
             "shasum": ""
         },
         "require": {
@@ -682,9 +906,9 @@
         },
         "require-dev": {
             "mockery/mockery": "~0.9",
-            "phpunit/phpunit": "~4.0"
+            "phpunit/phpunit": "~6"
         },
-        "time": "2018-03-28T02:22:49+00:00",
+        "time": "2019-02-15T08:08:22+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -714,21 +938,22 @@
     },
     {
         "name": "overtrue/wechat",
-        "version": "4.0.20",
-        "version_normalized": "4.0.20.0",
+        "version": "4.1.19",
+        "version_normalized": "4.1.19.0",
         "source": {
             "type": "git",
             "url": "https://github.com/overtrue/wechat.git",
-            "reference": "74fc274357833d9df5b2a5e9c149bd638f597dea"
+            "reference": "3737fd0fad45f8f1692318b5cc26137ce71025dd"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/overtrue/wechat/zipball/74fc274357833d9df5b2a5e9c149bd638f597dea",
-            "reference": "74fc274357833d9df5b2a5e9c149bd638f597dea",
+            "url": "https://api.github.com/repos/overtrue/wechat/zipball/3737fd0fad45f8f1692318b5cc26137ce71025dd",
+            "reference": "3737fd0fad45f8f1692318b5cc26137ce71025dd",
             "shasum": ""
         },
         "require": {
-            "easywechat-composer/easywechat-composer": "^1.0",
+            "easywechat-composer/easywechat-composer": "^1.1",
+            "ext-fileinfo": "*",
             "ext-openssl": "*",
             "ext-simplexml": "*",
             "guzzlehttp/guzzle": "^6.2",
@@ -736,9 +961,9 @@
             "overtrue/socialite": "~2.0",
             "php": ">=7.0",
             "pimple/pimple": "^3.0",
-            "symfony/cache": "^3.3|^4.0",
-            "symfony/http-foundation": "^2.7|^3.0|^4.0",
-            "symfony/psr-http-message-bridge": "^0.3|^1.0"
+            "symfony/cache": "^3.3 || ^4.0",
+            "symfony/http-foundation": "^2.7 || ^3.0 || ^4.0",
+            "symfony/psr-http-message-bridge": "^0.3 || ^1.0"
         },
         "require-dev": {
             "mikey179/vfsstream": "^1.6",
@@ -746,7 +971,7 @@
             "overtrue/phplint": "dev-master",
             "phpunit/phpunit": "~6.0"
         },
-        "time": "2018-02-28T05:58:51+00:00",
+        "time": "2019-02-15T08:47:31+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -774,6 +999,102 @@
             "wechat",
             "weixin",
             "weixin-sdk"
+        ]
+    },
+    {
+        "name": "phpoffice/phpspreadsheet",
+        "version": "1.6.0",
+        "version_normalized": "1.6.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PHPOffice/PhpSpreadsheet.git",
+            "reference": "bf00f0cc5f55c354018f9a9ef15e6e3e1a229051"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/bf00f0cc5f55c354018f9a9ef15e6e3e1a229051",
+            "reference": "bf00f0cc5f55c354018f9a9ef15e6e3e1a229051",
+            "shasum": ""
+        },
+        "require": {
+            "ext-ctype": "*",
+            "ext-dom": "*",
+            "ext-fileinfo": "*",
+            "ext-gd": "*",
+            "ext-iconv": "*",
+            "ext-libxml": "*",
+            "ext-mbstring": "*",
+            "ext-simplexml": "*",
+            "ext-xml": "*",
+            "ext-xmlreader": "*",
+            "ext-xmlwriter": "*",
+            "ext-zip": "*",
+            "ext-zlib": "*",
+            "markbaker/complex": "^1.4",
+            "markbaker/matrix": "^1.1",
+            "php": "^5.6|^7.0",
+            "psr/simple-cache": "^1.0"
+        },
+        "require-dev": {
+            "doctrine/instantiator": "^1.0.0",
+            "dompdf/dompdf": "^0.8.0",
+            "friendsofphp/php-cs-fixer": "@stable",
+            "jpgraph/jpgraph": "^4.0",
+            "mpdf/mpdf": "^7.0.0",
+            "phpcompatibility/php-compatibility": "^8.0",
+            "phpunit/phpunit": "^5.7",
+            "squizlabs/php_codesniffer": "^3.3",
+            "tecnickcom/tcpdf": "^6.2"
+        },
+        "suggest": {
+            "dompdf/dompdf": "Option for rendering PDF with PDF Writer",
+            "jpgraph/jpgraph": "Option for rendering charts, or including charts with PDF or HTML Writers",
+            "mpdf/mpdf": "Option for rendering PDF with PDF Writer",
+            "tecnickcom/tcpdf": "Option for rendering PDF with PDF Writer"
+        },
+        "time": "2019-01-02T04:42:54+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PhpOffice\\PhpSpreadsheet\\": "src/PhpSpreadsheet"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-2.1-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Erik Tilt"
+            },
+            {
+                "name": "Adrien Crivelli"
+            },
+            {
+                "name": "Maarten Balliauw",
+                "homepage": "https://blog.maartenballiauw.be"
+            },
+            {
+                "name": "Mark Baker",
+                "homepage": "https://markbakeruk.net"
+            },
+            {
+                "name": "Franck Lefevre",
+                "homepage": "https://rootslabs.net"
+            }
+        ],
+        "description": "PHPSpreadsheet - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+        "homepage": "https://github.com/PHPOffice/PhpSpreadsheet",
+        "keywords": [
+            "OpenXML",
+            "excel",
+            "gnumeric",
+            "ods",
+            "php",
+            "spreadsheet",
+            "xls",
+            "xlsx"
         ]
     },
     {
@@ -981,23 +1302,23 @@
     },
     {
         "name": "psr/log",
-        "version": "1.0.2",
-        "version_normalized": "1.0.2.0",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/php-fig/log.git",
-            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+            "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
-            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+            "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2016-10-10T12:19:37+00:00",
+        "time": "2018-11-20T15:27:04+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1080,17 +1401,17 @@
     },
     {
         "name": "qiniu/php-sdk",
-        "version": "v7.2.6",
-        "version_normalized": "7.2.6.0",
+        "version": "v7.2.7",
+        "version_normalized": "7.2.7.0",
         "source": {
             "type": "git",
             "url": "https://github.com/qiniu/php-sdk.git",
-            "reference": "305ce1c1c0c71f794661fe45a96facf61ef96c5d"
+            "reference": "88d11a5857ebc6871204e9be6ceec54bf5f381e6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/qiniu/php-sdk/zipball/305ce1c1c0c71f794661fe45a96facf61ef96c5d",
-            "reference": "305ce1c1c0c71f794661fe45a96facf61ef96c5d",
+            "url": "https://api.github.com/repos/qiniu/php-sdk/zipball/88d11a5857ebc6871204e9be6ceec54bf5f381e6",
+            "reference": "88d11a5857ebc6871204e9be6ceec54bf5f381e6",
             "shasum": ""
         },
         "require": {
@@ -1100,7 +1421,7 @@
             "phpunit/phpunit": "~4.0",
             "squizlabs/php_codesniffer": "~2.3"
         },
-        "time": "2018-05-18T04:37:29+00:00",
+        "time": "2018-11-06T13:34:32+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1132,44 +1453,94 @@
         ]
     },
     {
-        "name": "symfony/cache",
-        "version": "v4.1.3",
-        "version_normalized": "4.1.3.0",
+        "name": "ralouphie/getallheaders",
+        "version": "2.0.5",
+        "version_normalized": "2.0.5.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/symfony/cache.git",
-            "reference": "c666a5bbfeb1fe05c7b91d46810f405c8bea14cf"
+            "url": "https://github.com/ralouphie/getallheaders.git",
+            "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/cache/zipball/c666a5bbfeb1fe05c7b91d46810f405c8bea14cf",
-            "reference": "c666a5bbfeb1fe05c7b91d46810f405c8bea14cf",
+            "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+            "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~3.7.0",
+            "satooshi/php-coveralls": ">=1.0"
+        },
+        "time": "2016-02-11T07:05:27+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/getallheaders.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ralph Khattar",
+                "email": "ralph.khattar@gmail.com"
+            }
+        ],
+        "description": "A polyfill for getallheaders."
+    },
+    {
+        "name": "symfony/cache",
+        "version": "v4.2.3",
+        "version_normalized": "4.2.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/cache.git",
+            "reference": "7c5b85bcc5f87dd7938123be12ce3323be6cde5a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/cache/zipball/7c5b85bcc5f87dd7938123be12ce3323be6cde5a",
+            "reference": "7c5b85bcc5f87dd7938123be12ce3323be6cde5a",
             "shasum": ""
         },
         "require": {
             "php": "^7.1.3",
             "psr/cache": "~1.0",
             "psr/log": "~1.0",
-            "psr/simple-cache": "^1.0"
+            "psr/simple-cache": "^1.0",
+            "symfony/contracts": "^1.0",
+            "symfony/var-exporter": "^4.2"
         },
         "conflict": {
+            "doctrine/dbal": "<2.5",
+            "symfony/dependency-injection": "<3.4",
             "symfony/var-dumper": "<3.4"
         },
         "provide": {
             "psr/cache-implementation": "1.0",
-            "psr/simple-cache-implementation": "1.0"
+            "psr/simple-cache-implementation": "1.0",
+            "symfony/cache-contracts-implementation": "1.0"
         },
         "require-dev": {
             "cache/integration-tests": "dev-master",
             "doctrine/cache": "~1.6",
-            "doctrine/dbal": "~2.4",
-            "predis/predis": "~1.0"
+            "doctrine/dbal": "~2.5",
+            "predis/predis": "~1.1",
+            "symfony/config": "~4.2",
+            "symfony/dependency-injection": "~3.4|~4.1",
+            "symfony/var-dumper": "^4.1.1"
         },
-        "time": "2018-07-26T11:24:31+00:00",
+        "time": "2019-01-31T15:08:08+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "4.1-dev"
+                "dev-master": "4.2-dev"
             }
         },
         "installation-source": "dist",
@@ -1203,18 +1574,88 @@
         ]
     },
     {
-        "name": "symfony/http-foundation",
-        "version": "v4.1.3",
-        "version_normalized": "4.1.3.0",
+        "name": "symfony/contracts",
+        "version": "v1.0.2",
+        "version_normalized": "1.0.2.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/symfony/http-foundation.git",
-            "reference": "7d93e3547660ec7ee3dad1428ba42e8076a0e5f1"
+            "url": "https://github.com/symfony/contracts.git",
+            "reference": "1aa7ab2429c3d594dd70689604b5cf7421254cdf"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/http-foundation/zipball/7d93e3547660ec7ee3dad1428ba42e8076a0e5f1",
-            "reference": "7d93e3547660ec7ee3dad1428ba42e8076a0e5f1",
+            "url": "https://api.github.com/repos/symfony/contracts/zipball/1aa7ab2429c3d594dd70689604b5cf7421254cdf",
+            "reference": "1aa7ab2429c3d594dd70689604b5cf7421254cdf",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1.3"
+        },
+        "require-dev": {
+            "psr/cache": "^1.0",
+            "psr/container": "^1.0"
+        },
+        "suggest": {
+            "psr/cache": "When using the Cache contracts",
+            "psr/container": "When using the Service contracts",
+            "symfony/cache-contracts-implementation": "",
+            "symfony/service-contracts-implementation": "",
+            "symfony/translation-contracts-implementation": ""
+        },
+        "time": "2018-12-05T08:06:11+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Contracts\\": ""
+            },
+            "exclude-from-classmap": [
+                "**/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "A set of abstractions extracted out of the Symfony components",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "abstractions",
+            "contracts",
+            "decoupling",
+            "interfaces",
+            "interoperability",
+            "standards"
+        ]
+    },
+    {
+        "name": "symfony/http-foundation",
+        "version": "v4.2.3",
+        "version_normalized": "4.2.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/http-foundation.git",
+            "reference": "8d2318b73e0a1bc75baa699d00ebe2ae8b595a39"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/http-foundation/zipball/8d2318b73e0a1bc75baa699d00ebe2ae8b595a39",
+            "reference": "8d2318b73e0a1bc75baa699d00ebe2ae8b595a39",
             "shasum": ""
         },
         "require": {
@@ -1225,11 +1666,11 @@
             "predis/predis": "~1.0",
             "symfony/expression-language": "~3.4|~4.0"
         },
-        "time": "2018-08-01T14:07:44+00:00",
+        "time": "2019-01-29T09:49:29+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "4.1-dev"
+                "dev-master": "4.2-dev"
             }
         },
         "installation-source": "dist",
@@ -1260,28 +1701,28 @@
     },
     {
         "name": "symfony/inflector",
-        "version": "v4.1.1",
-        "version_normalized": "4.1.1.0",
+        "version": "v4.2.3",
+        "version_normalized": "4.2.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/inflector.git",
-            "reference": "a55513ebd8aa4843300e325c84d0954a9d1f4ed8"
+            "reference": "275e54941a4f17a471c68d2a00e2513fc1fd4a78"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/inflector/zipball/a55513ebd8aa4843300e325c84d0954a9d1f4ed8",
-            "reference": "a55513ebd8aa4843300e325c84d0954a9d1f4ed8",
+            "url": "https://api.github.com/repos/symfony/inflector/zipball/275e54941a4f17a471c68d2a00e2513fc1fd4a78",
+            "reference": "275e54941a4f17a471c68d2a00e2513fc1fd4a78",
             "shasum": ""
         },
         "require": {
             "php": "^7.1.3",
             "symfony/polyfill-ctype": "~1.8"
         },
-        "time": "2018-05-01T23:02:13+00:00",
+        "time": "2019-01-16T20:31:39+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "4.1-dev"
+                "dev-master": "4.2-dev"
             }
         },
         "installation-source": "dist",
@@ -1320,27 +1761,27 @@
     },
     {
         "name": "symfony/options-resolver",
-        "version": "v4.1.1",
-        "version_normalized": "4.1.1.0",
+        "version": "v4.2.3",
+        "version_normalized": "4.2.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/options-resolver.git",
-            "reference": "45cdcc8a96ef92b43a50723e6d1f5f83096e8cef"
+            "reference": "831b272963a8aa5a0613a1a7f013322d8161bbbb"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/options-resolver/zipball/45cdcc8a96ef92b43a50723e6d1f5f83096e8cef",
-            "reference": "45cdcc8a96ef92b43a50723e6d1f5f83096e8cef",
+            "url": "https://api.github.com/repos/symfony/options-resolver/zipball/831b272963a8aa5a0613a1a7f013322d8161bbbb",
+            "reference": "831b272963a8aa5a0613a1a7f013322d8161bbbb",
             "shasum": ""
         },
         "require": {
             "php": "^7.1.3"
         },
-        "time": "2018-05-31T10:17:53+00:00",
+        "time": "2019-01-16T21:31:25+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "4.1-dev"
+                "dev-master": "4.2-dev"
             }
         },
         "installation-source": "dist",
@@ -1376,27 +1817,30 @@
     },
     {
         "name": "symfony/polyfill-ctype",
-        "version": "v1.8.0",
-        "version_normalized": "1.8.0.0",
+        "version": "v1.10.0",
+        "version_normalized": "1.10.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/polyfill-ctype.git",
-            "reference": "7cc359f1b7b80fc25ed7796be7d96adc9b354bae"
+            "reference": "e3d826245268269cd66f8326bd8bc066687b4a19"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/7cc359f1b7b80fc25ed7796be7d96adc9b354bae",
-            "reference": "7cc359f1b7b80fc25ed7796be7d96adc9b354bae",
+            "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e3d826245268269cd66f8326bd8bc066687b4a19",
+            "reference": "e3d826245268269cd66f8326bd8bc066687b4a19",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.3"
         },
-        "time": "2018-04-30T19:57:29+00:00",
+        "suggest": {
+            "ext-ctype": "For best performance"
+        },
+        "time": "2018-08-06T14:22:27+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.8-dev"
+                "dev-master": "1.9-dev"
             }
         },
         "installation-source": "dist",
@@ -1433,17 +1877,17 @@
     },
     {
         "name": "symfony/polyfill-mbstring",
-        "version": "v1.8.0",
-        "version_normalized": "1.8.0.0",
+        "version": "v1.10.0",
+        "version_normalized": "1.10.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/polyfill-mbstring.git",
-            "reference": "3296adf6a6454a050679cde90f95350ad604b171"
+            "reference": "c79c051f5b3a46be09205c73b80b346e4153e494"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/3296adf6a6454a050679cde90f95350ad604b171",
-            "reference": "3296adf6a6454a050679cde90f95350ad604b171",
+            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/c79c051f5b3a46be09205c73b80b346e4153e494",
+            "reference": "c79c051f5b3a46be09205c73b80b346e4153e494",
             "shasum": ""
         },
         "require": {
@@ -1452,11 +1896,11 @@
         "suggest": {
             "ext-mbstring": "For best performance"
         },
-        "time": "2018-04-26T10:06:28+00:00",
+        "time": "2018-09-21T13:07:52+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.8-dev"
+                "dev-master": "1.9-dev"
             }
         },
         "installation-source": "dist",
@@ -1494,17 +1938,17 @@
     },
     {
         "name": "symfony/property-access",
-        "version": "v4.1.1",
-        "version_normalized": "4.1.1.0",
+        "version": "v4.2.3",
+        "version_normalized": "4.2.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/property-access.git",
-            "reference": "f957d37eb476c9442a0c684b0cd0dd1fb38cb74a"
+            "reference": "4768734a803c4471b7a733bd13698d91dd0cf193"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/property-access/zipball/f957d37eb476c9442a0c684b0cd0dd1fb38cb74a",
-            "reference": "f957d37eb476c9442a0c684b0cd0dd1fb38cb74a",
+            "url": "https://api.github.com/repos/symfony/property-access/zipball/4768734a803c4471b7a733bd13698d91dd0cf193",
+            "reference": "4768734a803c4471b7a733bd13698d91dd0cf193",
             "shasum": ""
         },
         "require": {
@@ -1517,11 +1961,11 @@
         "suggest": {
             "psr/cache-implementation": "To cache access methods."
         },
-        "time": "2018-05-30T07:26:09+00:00",
+        "time": "2019-01-16T20:31:39+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "4.1-dev"
+                "dev-master": "4.2-dev"
             }
         },
         "installation-source": "dist",
@@ -1563,36 +2007,37 @@
     },
     {
         "name": "symfony/psr-http-message-bridge",
-        "version": "v1.0.2",
-        "version_normalized": "1.0.2.0",
+        "version": "v1.1.0",
+        "version_normalized": "1.1.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/psr-http-message-bridge.git",
-            "reference": "c2b757934f2d9681a287e662efbc27c41fe8ef86"
+            "reference": "53c15a6a7918e6c2ab16ae370ea607fb40cab196"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/psr-http-message-bridge/zipball/c2b757934f2d9681a287e662efbc27c41fe8ef86",
-            "reference": "c2b757934f2d9681a287e662efbc27c41fe8ef86",
+            "url": "https://api.github.com/repos/symfony/psr-http-message-bridge/zipball/53c15a6a7918e6c2ab16ae370ea607fb40cab196",
+            "reference": "53c15a6a7918e6c2ab16ae370ea607fb40cab196",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.3",
-            "psr/http-message": "~1.0",
-            "symfony/http-foundation": "~2.3|~3.0|~4.0"
+            "php": "^5.3.3 || ^7.0",
+            "psr/http-message": "^1.0",
+            "symfony/http-foundation": "^2.3.42 || ^3.4 || ^4.0"
         },
         "require-dev": {
-            "symfony/phpunit-bridge": "~3.2|4.0"
+            "symfony/phpunit-bridge": "^3.4 || 4.0"
         },
         "suggest": {
+            "psr/http-factory-implementation": "To use the PSR-17 factory",
             "psr/http-message-implementation": "To use the HttpFoundation factory",
             "zendframework/zend-diactoros": "To use the Zend Diactoros factory"
         },
-        "time": "2017-12-19T00:31:44+00:00",
+        "time": "2018-08-30T16:28:28+00:00",
         "type": "symfony-bridge",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.0-dev"
+                "dev-master": "1.1-dev"
             }
         },
         "installation-source": "dist",
@@ -1624,18 +2069,80 @@
         ]
     },
     {
-        "name": "topthink/framework",
-        "version": "v5.1.16",
-        "version_normalized": "5.1.16.0",
+        "name": "symfony/var-exporter",
+        "version": "v4.2.3",
+        "version_normalized": "4.2.3.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/top-think/framework.git",
-            "reference": "e0a8bdc52957a8f9774353fbfa0b9fd6ee206188"
+            "url": "https://github.com/symfony/var-exporter.git",
+            "reference": "d8bf4424c232b55f4c1816037d3077a89258557e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/top-think/framework/zipball/e0a8bdc52957a8f9774353fbfa0b9fd6ee206188",
-            "reference": "e0a8bdc52957a8f9774353fbfa0b9fd6ee206188",
+            "url": "https://api.github.com/repos/symfony/var-exporter/zipball/d8bf4424c232b55f4c1816037d3077a89258557e",
+            "reference": "d8bf4424c232b55f4c1816037d3077a89258557e",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1.3"
+        },
+        "require-dev": {
+            "symfony/var-dumper": "^4.1.1"
+        },
+        "time": "2019-01-16T20:35:37+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\VarExporter\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "A blend of var_export() + serialize() to turn any serializable data structure to plain PHP code",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "clone",
+            "construct",
+            "export",
+            "hydrate",
+            "instantiate",
+            "serialize"
+        ]
+    },
+    {
+        "name": "topthink/framework",
+        "version": "v5.1.34",
+        "version_normalized": "5.1.34.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/top-think/framework.git",
+            "reference": "7c8cd1ea2bd4683a6ef46af415334260c6e2cc15"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/top-think/framework/zipball/7c8cd1ea2bd4683a6ef46af415334260c6e2cc15",
+            "reference": "7c8cd1ea2bd4683a6ef46af415334260c6e2cc15",
             "shasum": ""
         },
         "require": {
@@ -1651,7 +2158,7 @@
             "sebastian/phpcpd": "2.*",
             "squizlabs/php_codesniffer": "2.*"
         },
-        "time": "2018-06-08T04:10:59+00:00",
+        "time": "2019-01-30T06:38:38+00:00",
         "type": "think-framework",
         "installation-source": "dist",
         "notification-url": "https://packagist.org/downloads/",
@@ -1719,20 +2226,20 @@
     },
     {
         "name": "topthink/think-helper",
-        "version": "v1.0.6",
-        "version_normalized": "1.0.6.0",
+        "version": "v1.0.7",
+        "version_normalized": "1.0.7.0",
         "source": {
             "type": "git",
             "url": "https://github.com/top-think/think-helper.git",
-            "reference": "0c99dc625b0d2d4124e1b6ca15a3ad6f0125963f"
+            "reference": "5f92178606c8ce131d36b37a57c58eb71e55f019"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/top-think/think-helper/zipball/0c99dc625b0d2d4124e1b6ca15a3ad6f0125963f",
-            "reference": "0c99dc625b0d2d4124e1b6ca15a3ad6f0125963f",
+            "url": "https://api.github.com/repos/top-think/think-helper/zipball/5f92178606c8ce131d36b37a57c58eb71e55f019",
+            "reference": "5f92178606c8ce131d36b37a57c58eb71e55f019",
             "shasum": ""
         },
-        "time": "2017-04-05T07:15:37+00:00",
+        "time": "2018-10-05T00:43:21+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1805,18 +2312,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/zoujingli/ip2region.git",
-            "reference": "0a55d6c1ab6b4cbaa204824557aa950aaaefda0e"
+            "reference": "944dc687304133027c4586a35ff78b57e56dd659"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/zoujingli/ip2region/zipball/0a55d6c1ab6b4cbaa204824557aa950aaaefda0e",
-            "reference": "0a55d6c1ab6b4cbaa204824557aa950aaaefda0e",
+            "url": "https://api.github.com/repos/zoujingli/ip2region/zipball/944dc687304133027c4586a35ff78b57e56dd659",
+            "reference": "944dc687304133027c4586a35ff78b57e56dd659",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3"
         },
-        "time": "2018-06-01T02:21:05+00:00",
+        "time": "2019-01-23T06:23:53+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1843,25 +2350,29 @@
     },
     {
         "name": "zoujingli/wechat-developer",
-        "version": "v1.1.12",
-        "version_normalized": "1.1.12.0",
+        "version": "v1.2.9",
+        "version_normalized": "1.2.9.0",
         "source": {
             "type": "git",
             "url": "https://github.com/zoujingli/WeChatDeveloper.git",
-            "reference": "9957f449f7109f7b30574120aaed4c46a9ddd8fb"
+            "reference": "06ee3506a8f513c748dd986029508f9dea7e281a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/zoujingli/WeChatDeveloper/zipball/9957f449f7109f7b30574120aaed4c46a9ddd8fb",
-            "reference": "9957f449f7109f7b30574120aaed4c46a9ddd8fb",
+            "url": "https://api.github.com/repos/zoujingli/WeChatDeveloper/zipball/06ee3506a8f513c748dd986029508f9dea7e281a",
+            "reference": "06ee3506a8f513c748dd986029508f9dea7e281a",
             "shasum": ""
         },
         "require": {
             "ext-curl": "*",
+            "ext-json": "*",
+            "ext-libxml": "*",
+            "ext-mbstring": "*",
             "ext-openssl": "*",
+            "ext-simplexml": "*",
             "php": ">=5.4"
         },
-        "time": "2018-06-13T09:04:11+00:00",
+        "time": "2019-02-18T07:47:07+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1870,8 +2381,9 @@
             ],
             "psr-4": {
                 "WePay\\": "WePay",
+                "WeMini\\": "WeMini",
                 "WeChat\\": "WeChat",
-                "WeMini\\": "WeMini"
+                "AliPay\\": "AliPay"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -1890,6 +2402,7 @@
         "keywords": [
             "WeChatDeveloper",
             "WeMini",
+            "alipay",
             "wechat",
             "wechatpay",
             "wepay"
@@ -1902,21 +2415,22 @@
         "source": {
             "type": "git",
             "url": "https://github.com/zoujingli/WeOpenDeveloper.git",
-            "reference": "32aa04ad346790cd6ac7672c888e22e15cb007fe"
+            "reference": "6b13a365300478b5d3cec21759bcbdf078c7c9dc"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/zoujingli/WeOpenDeveloper/zipball/32aa04ad346790cd6ac7672c888e22e15cb007fe",
-            "reference": "32aa04ad346790cd6ac7672c888e22e15cb007fe",
+            "url": "https://api.github.com/repos/zoujingli/WeOpenDeveloper/zipball/6b13a365300478b5d3cec21759bcbdf078c7c9dc",
+            "reference": "6b13a365300478b5d3cec21759bcbdf078c7c9dc",
             "shasum": ""
         },
         "require": {
             "ext-curl": "*",
+            "ext-json": "*",
             "ext-openssl": "*",
             "php": ">=5.4",
             "zoujingli/wechat-developer": "^1.0"
         },
-        "time": "2018-06-14T08:11:03+00:00",
+        "time": "2018-11-05T06:27:42+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

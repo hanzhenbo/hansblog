@@ -13,6 +13,7 @@
   ],
   "keywords": [
     "WePay",
+    "AliPay",
     "WeMini",
     "WeChat",
     "WeChatPay",
@@ -20,8 +21,12 @@
   ],
   "require": {
     "php": ">=5.4",
+    "ext-json": "*",
     "ext-curl": "*",
-    "ext-openssl": "*"
+    "ext-libxml": "*",
+    "ext-openssl": "*",
+    "ext-mbstring": "*",
+    "ext-simplexml": "*"
   },
   "autoload": {
     "classmap": [
@@ -29,8 +34,9 @@
     ],
     "psr-4": {
       "WePay\\": "WePay",
+      "WeMini\\": "WeMini",
       "WeChat\\": "WeChat",
-      "WeMini\\": "WeMini"
+      "AliPay\\": "AliPay"
     }
   }
 }

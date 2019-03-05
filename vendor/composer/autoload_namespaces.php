@@ -7,5 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Pimple' => array($vendorDir . '/pimple/pimple/src'),
-    'BaconQrCode' => array($vendorDir . '/bacon/bacon-qr-code/src'),
 );

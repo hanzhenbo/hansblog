@@ -15,6 +15,7 @@
 namespace app\admin\controller;
 
 use controller\BasicAdmin;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 use service\DataService;
 use service\NodeService;
 use service\ToolsService;
@@ -144,6 +145,63 @@ class Index extends BasicAdmin
     public function phpinfo()
     {
         echo phpinfo();
+    }
+
+    public function upload_excel()
+    {
+        if ($this->request->isPost()) {
+            $file = $this->request->post('file');
+            if ($file == '') {
+                $this->error('请先上传文件!');
+            }
+            $file = PROJECT_PATH . str_replace($this->request->domain(), '', $file);
+            return $this->import_customer($file);
+        }
+        return $this->fetch('upload_excel');
+    }
+
+
+    private function import_customer($file)
+    {
+        set_time_limit(0);
+        ignore_user_abort(1);
+
+        $reader = IOFactory::createReader('Xlsx');
+        $reader->setReadDataOnly(TRUE);
+        $PHPExcel = $reader->load($file);
+        $sheet = $PHPExcel->getActiveSheet();
+
+        $colNum = ord($sheet->getHighestColumn()) - ord('A') + 1;
+        $rowNum = $sheet->getHighestRow();
+        if ($rowNum > 5000) {
+            $this->error('一次最多导入5000条数据');
+        }
+        $data = [];
+        for ($i = 2; $i <= $rowNum; $i++) {
+            $tmp = [];
+            for ($j = 1; $j <= $colNum; $j++) {
+                $tmp[] = $sheet->getCellByColumnAndRow($j, $i)->getValue();
+            }
+            array_push($data, $tmp);
+        }
+        foreach ($data as $k => $v) {
+            $arraylength = implode('', $v);
+            if (empty($arraylength)) {
+                unset($data[$k]);
+            }
+        }
+        $insertArr = [];
+        $repeat_tel = [];
+//        dump($data);
+//        die;
+        $new = [];
+        foreach ($data as $key => $item) {
+            $new[$item[2]] = $item[3];
+        }
+        dump($new);
+        die;
+
+
     }
 
 }
