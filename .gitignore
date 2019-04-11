@@ -9,4 +9,4 @@
 !composer.json
 /composer.lock
 /static/upload
-/config
+/config/database.php
