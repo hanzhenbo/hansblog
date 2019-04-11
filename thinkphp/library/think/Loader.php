@@ -413,7 +413,5 @@ function __include_file($file)
 
 function __require_file($file)
 {
-    dump($file);
-    die;
     return require $file;
 }

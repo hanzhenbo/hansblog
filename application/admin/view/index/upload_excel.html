@@ -1,0 +1,37 @@
+{extend name='admin@public/content'}
+
+{block name="content"}
+<form data-auto="true" method="post" action="" style="padding: 20px;">
+    <div class="layui-form-item">
+        <label class="layui-form-label">下载模板</label>
+        <div class="layui-input-block">
+            <a href="/static/extend_res/cus_import.xlsx" class="layui-btn layui-btn-primary">下载</a>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">选择文件</label>
+        <div class="layui-input-block">
+            <input type="hidden" name="file" value="" class="layui-input" required>
+            <a class="btn btn-primary" data-file="one" data-type="xls,xlsx" data-field="file" data-uptype="local">上传Excel</a>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">导入数据</label>
+        <div class="layui-input-block">
+            <button class="layui-btn" type="submit">导入</button>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><span style="color: red"> * </span></label>
+        <div class="help-block">
+            操作流程：先将模板下载下来，对照模板对数据进行填入，完成后上传Excel文件，上传成功后点击导入
+        </div>
+        <div class="help-block">
+            （注意：请严格按照模板中的格式操作，勿增加新的列。导入会直接生成信息，请谨慎操作）
+        </div>
+    </div>
+</form>
+<script>
+    window.form.render();
+</script>
+{/block}
