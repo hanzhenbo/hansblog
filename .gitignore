@@ -10,3 +10,4 @@
 /composer.lock
 /static/upload
 /config/database.php
+/config/wechat.php
